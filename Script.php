@@ -3,7 +3,6 @@
 namespace Core;
 require('EDMException.php');
 
-define('SCRIPTS_PATH', realpath(__DIR__ . '/../../static/assets/scripts'));
 
 class Script {
     private $file_name = '';
@@ -33,7 +32,7 @@ class Script {
     // }
     public function __construct($json){
         $this->script_content = json_decode($json, true);
-        $this->file_name = $script_content['script'];
+        $this->file_name = $script_content['script'] . ".json";
         $this->filepath = SCRIPTS_PATH . '/' . $this->file_name;
     }
 
@@ -69,34 +68,34 @@ class Script {
     }
 
 
-    /**
-     * Return availables scripts
-     * @param not_usable Returns all scripts even those that are not usable
-     */
-    public static function get_scripts($not_usable = false) {
-        // Get all scripts available on the folder
-        $files = glob(SCRIPTS_PATH . '/*.json');
-        $output = array();
+    // /**
+    //  * Return availables scripts
+    //  * @param not_usable Returns all scripts even those that are not usable
+    //  */
+    // public static function get_scripts($not_usable = false) {
+    //     // Get all scripts available on the folder
+    //     $files = glob(SCRIPTS_PATH . '/*.json');
+    //     $output = array();
 
-        foreach($files as $script) {
-            try {
-                $filename = pathinfo($script, PATHINFO_FILENAME);
-                $Script = new Script($filename);
+    //     foreach($files as $script) {
+    //         try {
+    //             $filename = pathinfo($script, PATHINFO_FILENAME);
+    //             $Script = new Script($filename);
 
-                if(!$not_usable) {
-                    $validator = $Script->validate_script();
+    //             if(!$not_usable) {
+    //                 $validator = $Script->validate_script();
 
-                    if($validator['usable'])
-                        $output[$filename] = $Script->get_header();
-                } else
-                    $output[$filename] = $Script->get_header();
-            } catch(Exception $e) {
-                echo $e;
-            }
-        }
+    //                 if($validator['usable'])
+    //                     $output[$filename] = $Script->get_header();
+    //             } else
+    //                 $output[$filename] = $Script->get_header();
+    //         } catch(Exception $e) {
+    //             echo $e;
+    //         }
+    //     }
 
-        return $output;
-    }
+    //     return $output;
+    // }
 
     /**
      * Validate_script

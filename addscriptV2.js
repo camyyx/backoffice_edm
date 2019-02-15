@@ -2,6 +2,7 @@
 var fileData = {};
 var steps = {};
 
+//soumission du formulaire contenant le script complet
 function handleSubmit(event){
     event.preventDefault();
     var script_name = document.getElementById('script_name').value;
@@ -11,26 +12,39 @@ function handleSubmit(event){
     fileData = {
     'script_name': script_name,
     'summary': summary, 
+    'version': 1,
+    'script_background': "blabla.jpg",
     'initial_step' : first_step
     };
-    fileData['steps'] = steps
-    const dataContainer = document.getElementsByClassName('result_display')[0];
-    dataContainer.textContent = JSON.stringify(fileData, null, "  ");
+    fileData['steps'] = steps;
+    var sendForm = document.createElement("form");
+    sendForm.setAttribute('method',"post");
+    sendForm.setAttribute('action',"validate.php"); 
+
+    var input = document.createElement("input");
+    input.setAttribute('type', "hidden");
+    input.setAttribute('name', "json");
+    input.setAttribute('value', "");
+    input.value = JSON.stringify(fileData);
+    sendForm.appendChild(input);
+    document.getElementsByTagName("body")[0].appendChild(sendForm);
+    sendForm.submit();
+    // document.getElementById('json').value = JSON.stringify(fileData, null, "  ");
+    // document.getElementById('submitForm').submit(); 
 }
 const submit_btn = document.getElementById('submit');
 submit_btn.addEventListener('click', handleSubmit);
 
-
+//ouvre la fenetre qui ajoute une étape 
 var favDialog = document.getElementsByClassName('modal-content')[0];
-var outputBox = document.getElementsByClassName('step_result_display')[0];
-
 const updateButton = document.getElementById('add_step_btn');
 updateButton.addEventListener('click', function() {
     favDialog.showModal();
 })
 
-function addStep(step_name){
 
+//ajout d'une étape dans la selectbox ajout d'étape 
+function addStep(step_name){
     var table = document.getElementById("step_list");
     var row = document.createElement('tr');
     var td = document.createElement('td');
@@ -45,6 +59,8 @@ function addStep(step_name){
     select_box.appendChild(opt);
 }
 
+
+//ajout d'une étape
 function handleSubmitstep(event){
     event.preventDefault();
     var step_name = document.getElementById('step_name').value;
@@ -137,8 +153,6 @@ function handleSubmitstep(event){
             ],
             'options' : {}  
     }
-    const dataContainer = document.getElementsByClassName('step_result_display')[0];
-    dataContainer.textContent = JSON.stringify(data, null, "  ");
     steps[step_name] = data;
     addStep(step_name);
     step_form.reset();
@@ -146,6 +160,8 @@ function handleSubmitstep(event){
 }
 const step_form = document.getElementsByClassName('step_form')[0];
 step_form.addEventListener('submit', handleSubmitstep);
+
+//quand on clique sur la croix la fenetre se ferme sans rien envoyer 
 const dialog_close = document.getElementsByClassName('close')[0];
 dialog_close.addEventListener('click', function() {
     favDialog.close();
