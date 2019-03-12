@@ -35,8 +35,7 @@
                 echo '</ul>';
                 echo '<script>';
                 echo 'var errors = ' . json_encode($_POST['errors']) . ';';
-                include('loggeur.js');
-                echo 'document.getElementById("superUL").lastChild.remove()';
+                echo 'document.getElementById("superUL").lastChild.remove();';
                 echo '</script>';
                 echo'</div>';
             }
