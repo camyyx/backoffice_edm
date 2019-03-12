@@ -5,8 +5,20 @@
         $json = $_POST['json'];
         $script = new \Core\Script($json);
         $output = $script->validate_script();
-        var_dump($output);
+        if ($output['usable']){
+            echo "Le script est valide il sera ajouté au jeu !";
+        }else{
+            ?>
+            <form id = "send" action = "update.php" method = "post">
+                <input type="text" name="json" value="<?= htmlspecialchars($json); ?>" />
+                <input type="text" name="errors" value="<?= htmlspecialchars(json_encode($output['errors'])) ;?>" />
+            </form>
+            <script>
+                document.getElementById('send').submit();
+            </script>
+            <?php
+        }
     }else{
-        echo "nonon";
+        echo "Il semble y avoir un probleme";
     }
 ?>

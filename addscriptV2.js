@@ -19,7 +19,7 @@ function handleSubmit(event){
     fileData['steps'] = steps;
     var sendForm = document.createElement("form");
     sendForm.setAttribute('method',"post");
-    sendForm.setAttribute('action',"validate.php"); 
+    sendForm.setAttribute('action',"validate.php");
 
     var input = document.createElement("input");
     input.setAttribute('type', "hidden");
@@ -29,17 +29,15 @@ function handleSubmit(event){
     sendForm.appendChild(input);
     document.getElementsByTagName("body")[0].appendChild(sendForm);
     sendForm.submit();
-    // document.getElementById('json').value = JSON.stringify(fileData, null, "  ");
-    // document.getElementById('submitForm').submit(); 
+
 }
 const submit_btn = document.getElementById('submit');
 submit_btn.addEventListener('click', handleSubmit);
 
 //ouvre la fenetre qui ajoute une étape 
-var favDialog = document.getElementsByClassName('modal-content')[0];
-const updateButton = document.getElementById('add_step_btn');
+var updateButton = document.getElementById('add_step_btn');
 updateButton.addEventListener('click', function() {
-    favDialog.showModal();
+    document.getElementById('favDialog').showModal();
 })
 
 
@@ -166,3 +164,6 @@ const dialog_close = document.getElementsByClassName('close')[0];
 dialog_close.addEventListener('click', function() {
     favDialog.close();
 });
+
+
+

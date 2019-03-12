@@ -146,11 +146,12 @@ class Script {
                 }
 
                 if($key != 'options' && empty($value))
-                    array_push($output['errors'], "'{$key}' in '{$step_key}' step exists but is empty.");
+                    array_push($output['errors'], "In '{$step_key}' the '{$key}' step exists but is empty.");
             }
 
             // Generate error for every missed key
             foreach($local_steps as $key) {
+                var_dump($key);
                 array_push($output['errors'], "'{$key}' key in '{$step_key}' step is required but is not found.");
             }
 
@@ -158,14 +159,14 @@ class Script {
             if(count($local_steps) > 0) continue;
 
             // Check the content of answers
-            $answer_it = 0; // Counter for returning the position of the faulty answer when an error is detected
+            $answer_it = 1; // Counter for returning the position of the faulty answer when an error is detected
 
             foreach($step_content['answers'] as $answer) {
                 // Check if the answer key exists and if is not empty
                 if(!array_key_exists('answer', $answer))
-                    array_push($output['errors'], "The 'answer' key in '{$step_key}' step, question n°{$answer_it} is required but is not found.");
+                    array_push($output['errors'], "In '{$step_key}' step, question 'question{$answer_it}' is required but is not found.");
                 else if(empty($answer['answer']) || is_null($answer['answer']))
-                    array_push($output['errors'], "The 'answer' key in '{$step_key}' step, answer n°{$answer_it} exists but is empty.");
+                    array_push($output['errors'], "In '{$step_key}' step, answer 'answer{$answer_it}' exists but is empty.");
 
                 // Check options parameters
                 if(array_key_exists('actions', $answer) && is_array($answer['actions'])) {
@@ -195,16 +196,15 @@ class Script {
                                 continue;
                             }
                         }
-
                         if(!$find_action)
-                            array_push($output['errors'], "The answer n°{$answer_it} in '{$step_key}' not have next_step or 'static step' action. The game will block at this step.");
+                            array_push($output['errors'], "The answer n°{$answer_it} in '{$step_key}' not have 'next_step{$answer_it}' action. The game will block at this step.");
                     } else
-                        array_push($output['errors'], "The answer n°{$answer_it} in '{$step_key}' not have next_step or 'static step' action. The game will block at this step.");
+                        array_push($output['errors'], "The answer n°{$answer_it} in '{$step_key}' not have 'next_step{$answer_it}' action. The game will block at this step.");
                 } else {
                     if($answer['next_step'] == $step_key)
-                        array_push($output['errors'], "The answer n°{$answer_it} in '{$step_key}' recall itself.");
+                        array_push($output['errors'], "In '{$step_key}' the 'next_step{$answer_it}' in answer n°{$answer_it}  recall itself.");
                     else if(!array_key_exists($answer['next_step'], $this->script_content['steps']))
-                        array_push($output['errors'], "The answer n°{$answer_it} in '{$step_key}' call an unknown step.");
+                        array_push($output['errors'], "In '{$step_key}' the 'next_step{$answer_it}' in answer n°{$answer_it} call an unknown step.");
                 }
 
                 $answer_it++;
