@@ -9,12 +9,18 @@ function handleSubmit(event){
     var summary = document.getElementById('summary').value;
     var select_box = document.getElementById('first_step');
     var first_step = select_box.options[select_box.selectedIndex].text;
+    var pack_box = document.getElementById('pack');
+    var pack = pack_box.options[select_box.selectedIndex];
+    var character_box = document.getElementById('character_id');
+    var character = character_box.options[select_box.selectedIndex];
     fileData = {
     'script_name': script_name,
     'summary': summary, 
     'version': 1,
     'script_background': "blabla.jpg",
-    'initial_step' : first_step
+    'initial_step' : first_step,
+    'pack' : pack.id,
+    'character_id' : character.id
     };
     fileData['steps'] = steps;
     var sendForm = document.createElement("form");

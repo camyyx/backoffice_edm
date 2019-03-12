@@ -241,12 +241,18 @@ function handleSubmit(event){
     var summary = document.getElementById('summary').value;
     var select_box = document.getElementById('first_step');
     var first_step = select_box.options[select_box.selectedIndex].text;
+    var selectpack = document.getElementById('pack');
+    var pack = selectpack.options[selectpack.selectedIndex].id;
+    var selectcharacter = document.getElementById('character_id');
+    var charcter = selectcharacter.options[selectcharacter.selectedIndex].id;
     json = {
     'script_name': script_name,
     'summary': summary, 
     'version': 1,
     'script_background': "blabla.jpg",
     'initial_step' : first_step,
+    'character_id' : charcter,
+    'pack' : pack,
     'steps': steps
     };
     var sendForm = document.createElement("form");

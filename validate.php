@@ -7,6 +7,7 @@
         $output = $script->validate_script();
         if ($output['usable']){
             echo "Le script est valide il sera ajouté au jeu !";
+            var_dump($json);
         }else{
             ?>
             <form id = "send" action = "update.php" method = "post">
