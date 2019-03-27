@@ -28,6 +28,9 @@ if(typeof jsonstring === 'undefined' || jsonstring === null){
         btn.innerHTML = "Modifier";
         btn.className = 'btn btn-info'
         btn.style.margin = '0.5em'
+        btn.setAttribute("type", "button")
+        btn.setAttribute("data-toggle", "modal")
+        btn.setAttribute("data-target", "#exampleModal")
         row.appendChild(btn);
         btn.addEventListener('click', modifyButton);
 
@@ -125,7 +128,7 @@ function modifyButton(){
     if(!!step['answers'][1]["next_step"]){
         document.getElementById('next_step2').value = step['answers'][1]["next_step"];
     }
-    document.getElementById('favDialog').showModal();
+    // document.getElementById('favDialog').showModal();
 }
 
 function modify(event){
@@ -277,14 +280,14 @@ function handleSubmit(event){
 }
 document.getElementById('submit').addEventListener('click', handleSubmit);
 
-//ouvre la fenetre qui ajoute une Ã©tape 
+//ouvre la fenetre qui ajoute une étape 
 var updateButton = document.getElementById('add_step_btn');
 updateButton.addEventListener('click', function() {
-    document.getElementById('favDialog').showModal();
+    // document.getElementById('favDialog').showModal();
 })
 
 
-//ajout d'une Ã©tape dans la selectbox ajout d'Ã©tape 
+//ajout d'une étape dans la selectbox ajout d'étape 
 function addStep(step_name){
     var table = document.getElementById("step_list");
     var row = document.createElement('tr');
@@ -303,7 +306,7 @@ function addStep(step_name){
     btn.setAttribute('id', step_name);
     btn.innerHTML = "Modifier";
     row.appendChild(btn);
-    btn.addEventListener('click', modifyButton);
+    // btn.addEventListener('click', modifyButton);
     var btnDel = document.createElement('button');
     btnDel.setAttribute('id', step_name);
     btnDel.innerHTML = "Supprimer";
@@ -313,5 +316,5 @@ function addStep(step_name){
 if(typeof errors !== 'undefined'){
     console.log(errors);
 }else{
-    console.log('problÃ¨me'); 
+    console.log('problème'); 
 }

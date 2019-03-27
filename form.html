@@ -16,7 +16,7 @@
     <div class="form-group row">
         <label class="col-form-label col-sm-4" for="first_step">Première étape :</label>
         <div class="col-sm-8">
-            <select class="form-control" name ="first_step" id = first_step>
+            <select class="custom-select" name ="first_step" id = first_step>
         </select>
     </div>
 </div>
@@ -24,7 +24,7 @@
     <div class="form-group row">
         <label class="col-form-label col-sm-4" for="pack">Choix de l'arrière plan:</label>
         <div class="col-sm-8">
-            <select class="form-control" name = "pack" id = "pack">
+            <select class="custom-select" name = "pack" id = "pack">
                 <option id = "african">Affricain</option>
                 <option id = "asian">Asiatique</option>
                 <option id = "european">Européen</option>
@@ -35,7 +35,7 @@
     <div class="form-group row">
         <label class="col-form-label col-sm-4" for="character_id">Choix du personnage:</label>
         <div class="col-sm-8">
-            <select class="form-control" name = "character_id" id = "character_id">
+            <select class="custom-select" name = "character_id" id = "character_id">
                 <option id = "female-back-1">Femme</option>
                 <option id = "male-back-1">Homme</option>
             </select>
@@ -45,111 +45,131 @@
 </form>
 <table id="step_list">
     <tbody>
-        <tr><td><button style="margin-bottom: 1em" class="btn btn-primary" id="add_step_btn">+ Ajouter une étape</button></td></tr>                  
+        <tr><td><button   type="button"
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#exampleModal" style="margin-bottom: 1em" id="add_step_btn">+ Ajouter une étape</button></td></tr>                  
     </tbody>
 </table>
-<dialog id="favDialog">
-        <!-- Modal content -->
-<div class="modal-dialog" style="display:flex">
-    <div class="modal-content">
-        <div class="modal-body">
-            <button class="close"><span>&times;</span></button>
-        <form class="step_form" method="dialog">
-            <div class = "form-group">
-                <label for="step_name">Nom de l'étape:</label>
-                <input class="form-control" type="text" id="step_name" name="step_name">
-            </div>
-            <div class = "form-group">
-                <label for="question">Question:</label>
-                <textarea class="form-control" type="text" id="question" name="question"></textarea>
-            </div>
-            <hr>
-            <h3>Réponse 1</h3>
-            <div class = "form-group">
-                    <label for="answer1">Réponse</label>
-                    <textarea class="form-control" type="text" id="answer1" name="answer1"></textarea>
-            </div>
-            <div class = "form-group">
-                    <label for="return_message1">Message de la réponse</label>
-                    <textarea class="form-control" type="text" id="return_message1" name="return_message1"></textarea>
-            </div>
 
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm" style='display: flex; flex-direction: column; justify-content: space-around'>
-                        <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input" type="checkbox"  name="rankup1" value="rankup" id = 'rankup1'>
-                            <label class="custom-control-label" for="rankup1">Passer un niveau suppérieur</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input" type="checkbox" name="addpoints1" value="addpoints" id = 'addpoints1'>
-                            <label class="custom-control-label" for="addpoints1">Ajouter points</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input" type="checkbox" name="endgame1" value="endgame" id = 'endgame1'>
-                            <label class="custom-control-label" for="endgame1">Fin du jeu</label>
-                        </div>
+<div
+class="modal fade"
+id="exampleModal"
+tabindex="-1"
+role="dialog"
+aria-labelledby="exampleModalLabel"
+aria-hidden="true"
+>
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-body">
+            <button
+        type="button"
+        class="close"
+        data-dismiss="modal"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+            <form class="step_form" method="dialog">
+                    <div class = "form-group">
+                        <label for="step_name">Nom de l'étape:</label>
+                        <input class="form-control" type="text" id="step_name" name="step_name">
                     </div>
-                    <div class="col-sm">
-                            <label for="rankup_value1">Message</label>
-                            <textarea class="form-control" name="rankup_value1" id="rankup_value1"></textarea>
-                            <select style="margin-top: 1em" class="form-control" name="" id="rankup_select1">
-                                    <option value="gold">Or</option>
-                                    <option value="silver">Argent</option>
-                                    <option value="bronze">Bronze</option>
-                            </select>
+                    <div class = "form-group">
+                        <label for="question">Question:</label>
+                        <textarea class="form-control" type="text" id="question" name="question"></textarea>
                     </div>
-                </div>                         
-            </div>
-            <div class = "form-group">
-                    <label for="next_step1">Etape suivante</label>
-                    <input class="form-control" type="text" id="next_step1" name="next_step1">
-            </div>
-            <hr>
-            <h3>Réponse 2</h3>
-            <div class = "form-group">
-                    <label for="answer2">Réponse</label>
-                    <textarea class="form-control" type="text" id="answer2" name="answer2"></textarea>
-            </div>
-            <div class = "form-group">
-                    <label for="return_message2">Message de la réponse</label>
-                    <textarea class="form-control" type="text" id="return_message2" name="return_message2"></textarea>
-            </div>
-            <div class="container">
-                    <div class="row">
-                        <div class="col-sm" style='display: flex; flex-direction: column; justify-content: space-around'>
-                            <div class="custom-control custom-checkbox">
-                                <input class="custom-control-input" type="checkbox"  name="rankup2" value="rankup" id = 'rankup2'>
-                                <label class="custom-control-label" for="rankup2">Passer un niveau suppérieur</label>
+                    <hr>
+                    <h3>Réponse 1</h3>
+                    <div class = "form-group">
+                            <label for="answer1">Réponse</label>
+                            <textarea class="form-control" type="text" id="answer1" name="answer1"></textarea>
+                    </div>
+                    <div class = "form-group">
+                            <label for="return_message1">Message de la réponse</label>
+                            <textarea class="form-control" type="text" id="return_message1" name="return_message1"></textarea>
+                    </div>
+        
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm" style='display: flex; flex-direction: column; justify-content: space-around'>
+                                <div class="custom-control custom-checkbox">
+                                    <input class="custom-control-input" type="checkbox"  name="rankup1" value="rankup" id = 'rankup1'>
+                                    <label class="custom-control-label" for="rankup1">Passer un niveau suppérieur</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input class="custom-control-input" type="checkbox" name="addpoints1" value="addpoints" id = 'addpoints1'>
+                                    <label class="custom-control-label" for="addpoints1">Ajouter points</label>
+                                </div>
+                                <div class="custom-control custom-checkbox">
+                                    <input class="custom-control-input" type="checkbox" name="endgame1" value="endgame" id = 'endgame1'>
+                                    <label class="custom-control-label" for="endgame1">Fin du jeu</label>
+                                </div>
                             </div>
-                            <div class="custom-control custom-checkbox">
-                                <input class="custom-control-input" type="checkbox" name="addpoints1" value="addpoints" id = 'addpoints2'>
-                                <label class="custom-control-label" for="addpoints2">Ajouter points</label>
+                            <div class="col-sm">
+                                    <label for="rankup_value1">Message</label>
+                                    <textarea class="form-control" name="rankup_value1" id="rankup_value1"></textarea>
+                                    <select style="margin-top: 1em" class="custom-select" name="" id="rankup_select1">
+                                            <option value="gold">Or</option>
+                                            <option value="silver">Argent</option>
+                                            <option value="bronze">Bronze</option>
+                                    </select>
                             </div>
-                            <div class="custom-control custom-checkbox">
-                                <input class="custom-control-input" type="checkbox" name="endgame1" value="endgame" id = 'endgame2'>
-                                <label class="custom-control-label" for="endgame2">Fin du jeu</label>
-                            </div>
+                        </div>                         
+                    </div>
+                    <div class = "form-group">
+                            <label for="next_step1">Etape suivante</label>
+                            <input class="form-control" type="text" id="next_step1" name="next_step1">
+                    </div>
+                    <hr>
+                    <h3>Réponse 2</h3>
+                    <div class = "form-group">
+                            <label for="answer2">Réponse</label>
+                            <textarea class="form-control" type="text" id="answer2" name="answer2"></textarea>
+                    </div>
+                    <div class = "form-group">
+                            <label for="return_message2">Message de la réponse</label>
+                            <textarea class="form-control" type="text" id="return_message2" name="return_message2"></textarea>
+                    </div>
+                    <div class="container">
+                            <div class="row">
+                                <div class="col-sm" style='display: flex; flex-direction: column; justify-content: space-around'>
+                                    <div class="custom-control custom-checkbox">
+                                        <input class="custom-control-input" type="checkbox"  name="rankup2" value="rankup" id = 'rankup2'>
+                                        <label class="custom-control-label" for="rankup2">Passer un niveau suppérieur</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                        <input class="custom-control-input" type="checkbox" name="addpoints1" value="addpoints" id = 'addpoints2'>
+                                        <label class="custom-control-label" for="addpoints2">Ajouter points</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                        <input class="custom-control-input" type="checkbox" name="endgame1" value="endgame" id = 'endgame2'>
+                                        <label class="custom-control-label" for="endgame2">Fin du jeu</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                        <label for="rankup_value2">Message</label>
+                                        <textarea class="form-control" name="rankup_value2" id="rankup_value2"></textarea>
+                                        <select style="margin-top: 1em" class="form-control" name="" id="rankup_select2">
+                                                <option value="gold">Or</option>
+                                                <option value="silver">Argent</option>
+                                                <option value="bronze">Bronze</option>
+                                        </select>
+                                </div>
+                            </div>                         
                         </div>
-                        <div class="col-sm">
-                                <label for="rankup_value2">Message</label>
-                                <textarea class="form-control" name="rankup_value2" id="rankup_value2"></textarea>
-                                <select style="margin-top: 1em" class="form-control" name="" id="rankup_select2">
-                                        <option value="gold">Or</option>
-                                        <option value="silver">Argent</option>
-                                        <option value="bronze">Bronze</option>
-                                </select>
-                        </div>
-                    </div>                         
-                </div>
-            <div class = "form-group">
-                    <label for="next_step2">Etape suivante</label>
-                    <input class="form-control" type="text" id="next_step2" name="next_step2">
-            </div>
-            <p><input class="btn btn-success" type="submit" class="submit"></p>
-        </form>
+                    <div class = "form-group">
+                            <label for="next_step2">Etape suivante</label>
+                            <input class="form-control" type="text" id="next_step2" name="next_step2">
+                    </div>
+                    <p><input class="btn btn-success" type="submit" class="submit"></p>
+                </form>
     </div>
+    <div class="modal-footer">
+
+    </div>
+  </div>
 </div>
 </div>
-</dialog>
 <button class="btn btn-success" id='submit'>Ajouter ce script</button>
