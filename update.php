@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body>
-        <div style='margin-top:20px' class="container">
+        <div style='margin-top:2em; margin-bottom: 2em' class="container">
             <div class="row">
                 <div class="col-md-6">
                     <?php include('form.html') ?>
@@ -47,6 +47,12 @@
                 include('update.js');
                 echo '</script>';
             }
+            if(isset($_POST['json'])){
+                echo '<script>';
+                echo 'var jsonstring = ' . json_encode($_POST['json']) . ';';
+                include('update.js');
+                echo '</script>';
+                }
             ?>
             </div>
         </div>

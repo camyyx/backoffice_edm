@@ -3,7 +3,16 @@ if(typeof jsonstring === 'undefined' || jsonstring === null){
     var json = {};
     var steps = {};
 }else{
-    const json = jsonstring
+   
+    console.log(typeof json)
+    if (typeof jsonstring === 'object') {
+        var json = jsonstring
+    } else {
+        console.log(typeof jsonstring)
+        var json = JSON.parse(jsonstring)
+    }
+    // var json = JSON.parse(jsonstring);
+    console.log(json);
     var steps = json.steps;
     document.getElementById('script_name').value = json['script_name'];
     document.getElementById('summary').textContent = json['summary'];
@@ -306,7 +315,7 @@ function addStep(step_name){
     btn.setAttribute('id', step_name);
     btn.innerHTML = "Modifier";
     row.appendChild(btn);
-    // btn.addEventListener('click', modifyButton);
+    btn.addEventListener('click', modifyButton);
     var btnDel = document.createElement('button');
     btnDel.setAttribute('id', step_name);
     btnDel.innerHTML = "Supprimer";

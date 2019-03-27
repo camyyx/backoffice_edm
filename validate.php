@@ -6,7 +6,7 @@
         $script = new \Core\Script($json);
         $output = $script->validate_script();
         if ($output['usable']){
-            echo "Le script est valide il sera ajoutÃ© au jeu !";
+            echo "Le script est valide il sera ajouté au jeu !";
             var_dump($json);
         }else{
             ?>
@@ -20,6 +20,6 @@
             <?php
         }
     }else{
-        echo "Il semble y avoir un probleme";
+        echo "Il semble y avoir un problème.";
     }
 ?>
