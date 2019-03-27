@@ -3,7 +3,7 @@ if(typeof jsonstring === 'undefined' || jsonstring === null){
     var json = {};
     var steps = {};
 }else{
-    var json = JSON.parse(jsonstring);
+    const json = jsonstring
     var steps = json.steps;
     document.getElementById('script_name').value = json['script_name'];
     document.getElementById('summary').textContent = json['summary'];

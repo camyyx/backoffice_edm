@@ -21,6 +21,7 @@
                 <!-- <script src="update.js"></script> -->
                 
                 <?php
+            echo readfile($_FILES['json']['tmp_name']);
             echo '<script>';
             include('allFunctions.js');
             echo '</script>';
@@ -41,9 +42,9 @@
                 echo '</script>';
                 echo'</div>';
             }
-            if(isset($_POST['json'])){
+            if(isset($_FILES['json'])){
                 echo '<script>';
-                echo 'var jsonstring = ' . json_encode($_POST['json']) . ';';
+                echo 'var jsonstring = ' . file_get_contents($_FILES['json']['tmp_name']) . ';';
                 include('update.js');
                 echo '</script>';
             }
