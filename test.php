@@ -3,19 +3,50 @@
     <head>
         <meta charset = "utf-8"/>
         <title>Entrée du script</title>
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         
         <script src="./watchInputFile.js"  crossorigin="anonymous"></script>
 
     </head>
     <body>
-       <form enctype="multipart/form-data" action="update.php" method="post">
+        <h1 style="margin: 0.5em">Ajoutez un fichier d'histoire</h1>        
+        <h5 style="margin: 0.5em">N'ajouter que des fichiers en <code>.json</code></h5>
+        <form style="margin: 0.5em" enctype="multipart/form-data" action="update.php" method="post">
             <!-- <textarea name="json" id="json" cols="30" rows="10"></textarea> -->
-            <input onchange="watch(this)" type="file" name="json" id="json">
-            <input disabled="true" id="input" type="submit">
-       </form>
+            <!-- <input style="margin: 0.5em" class="" onchange="watch(this)" type="file" name="json" id="json">
+            <input style="margin: 0.5em" class="btn btn-primary" disabled="true" id="input" type="submit"> -->
+            
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                 <button class="btn btn-primary" type="button"  disabled="true" id="input">Envoyer</button>
+                </div>
+                <div class="custom-file">
+                    <input accept="json" type="file" onchange="watch(this)" name="json" style="margin: 0.5em" class="custom-file-input" id="json" lang="fr">
+                    <label id="label" class="custom-file-label" for="json">Choisissez une histoire</label>
+                </div>
+            </div>
+
+
+        </form>
     </body>
 </html>
+
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    input:hover{
+        cursor: pointer;
+    }
+    button:hover{
+        cursor: pointer;
+    }
+</style>
