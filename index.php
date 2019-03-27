@@ -6,7 +6,6 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         
         <script src="./watchInputFile.js"  crossorigin="anonymous"></script>
-
     </head>
     <body>
         <h1 style="margin: 0.5em">Ajoutez un fichier d'histoire</h1>        
@@ -18,7 +17,7 @@
             
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                 <button class="btn btn-primary" type="button"  disabled="true" id="input">Envoyer</button>
+                 <input class="btn btn-primary" type="submit" disabled="true" id="input" value="Envoyer">
                 </div>
                 <div class="custom-file">
                     <input accept="json" type="file" onchange="watch(this)" name="json" style="margin: 0.5em" class="custom-file-input" id="json" lang="fr">

@@ -21,7 +21,6 @@
                 <!-- <script src="update.js"></script> -->
                 
                 <?php
-            echo readfile($_FILES['json']['tmp_name']);
             echo '<script>';
             include('allFunctions.js');
             echo '</script>';
