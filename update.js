@@ -3,7 +3,16 @@ if(typeof jsonstring === 'undefined' || jsonstring === null){
     var json = {};
     var steps = {};
 }else{
-    var json = JSON.parse(jsonstring);
+   
+    console.log(typeof json)
+    if (typeof jsonstring === 'object') {
+        var json = jsonstring
+    } else {
+        console.log(typeof jsonstring)
+        var json = JSON.parse(jsonstring)
+    }
+    // var json = JSON.parse(jsonstring);
+    console.log(json);
     var steps = json.steps;
     document.getElementById('script_name').value = json['script_name'];
     document.getElementById('summary').textContent = json['summary'];
@@ -26,11 +35,20 @@ if(typeof jsonstring === 'undefined' || jsonstring === null){
         var btn = document.createElement('button');
         btn.setAttribute('id', element);
         btn.innerHTML = "Modifier";
+        btn.className = 'btn btn-info'
+        btn.style.margin = '0.5em'
+        btn.setAttribute("type", "button")
+        btn.setAttribute("data-toggle", "modal")
+        btn.setAttribute("data-target", "#exampleModal")
         row.appendChild(btn);
         btn.addEventListener('click', modifyButton);
+
+
         var btnDel = document.createElement('button');
         btnDel.setAttribute('id', element);
         btnDel.innerHTML = "Supprimer";
+        btnDel.className = 'btn btn-danger'
+        btnDel.style.margin = '0.5em'
         row.appendChild(btnDel);
         btnDel.addEventListener('click', deleteBtn);
     });
@@ -119,7 +137,7 @@ function modifyButton(){
     if(!!step['answers'][1]["next_step"]){
         document.getElementById('next_step2').value = step['answers'][1]["next_step"];
     }
-    document.getElementById('favDialog').showModal();
+    // document.getElementById('favDialog').showModal();
 }
 
 function modify(event){
@@ -274,7 +292,7 @@ document.getElementById('submit').addEventListener('click', handleSubmit);
 //ouvre la fenetre qui ajoute une étape 
 var updateButton = document.getElementById('add_step_btn');
 updateButton.addEventListener('click', function() {
-    document.getElementById('favDialog').showModal();
+    // document.getElementById('favDialog').showModal();
 })
 
 

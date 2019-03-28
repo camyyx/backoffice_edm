@@ -174,15 +174,15 @@ class Script {
 
                     foreach($answer['actions'] as $option) {
                         if(!array_key_exists('action', $option) || empty($option['action']) || is_null($option['action']))
-                            array_push($output['errors'], "The action n°{$action_it} in answer n°{$answer_it}, step '{$step_key}', don't have 'action' defined.");
+                            array_push($output['errors'], "The action nÂ°{$action_it} in answer nÂ°{$answer_it}, step '{$step_key}', don't have 'action' defined.");
 
                         if(!array_key_exists('value', $option))
-                            array_push($output['errors'], "The action n°{$action_it} in answer n°{$answer_it}, step '{$step_key}', don't have 'value' defined.");
+                            array_push($output['errors'], "The action nÂ°{$action_it} in answer nÂ°{$answer_it}, step '{$step_key}', don't have 'value' defined.");
 
                         $action_it++;
                     }
                 } else if(!is_array($answer['actions']))
-                    array_push($output['errors'], "The 'actions' key in '{$step_key}' step, answer n°{$answer_it} is not an array.");
+                    array_push($output['errors'], "The 'actions' key in '{$step_key}' step, answer nÂ°{$answer_it} is not an array.");
 
                 // Check if next_step is present and check if the step not block the game
                 if(!array_key_exists('next_step', $answer) || empty($answer['next_step']) || is_null($answer['next_step'])) {
@@ -197,14 +197,14 @@ class Script {
                             }
                         }
                         if(!$find_action)
-                            array_push($output['errors'], "The answer n°{$answer_it} in '{$step_key}' not have 'next_step{$answer_it}' action. The game will block at this step.");
+                            array_push($output['errors'], "The answer nÂ°{$answer_it} in '{$step_key}' not have 'next_step{$answer_it}' action. The game will block at this step.");
                     } else
-                        array_push($output['errors'], "The answer n°{$answer_it} in '{$step_key}' not have 'next_step{$answer_it}' action. The game will block at this step.");
+                        array_push($output['errors'], "The answer nÂ°{$answer_it} in '{$step_key}' not have 'next_step{$answer_it}' action. The game will block at this step.");
                 } else {
                     if($answer['next_step'] == $step_key)
-                        array_push($output['errors'], "In '{$step_key}' the 'next_step{$answer_it}' in answer n°{$answer_it}  recall itself.");
+                        array_push($output['errors'], "In '{$step_key}' the 'next_step{$answer_it}' in answer nÂ°{$answer_it}  recall itself.");
                     else if(!array_key_exists($answer['next_step'], $this->script_content['steps']))
-                        array_push($output['errors'], "In '{$step_key}' the 'next_step{$answer_it}' in answer n°{$answer_it} call an unknown step.");
+                        array_push($output['errors'], "In '{$step_key}' the 'next_step{$answer_it}' in answer nÂ°{$answer_it} call an unknown step.");
                 }
 
                 $answer_it++;

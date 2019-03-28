@@ -40,14 +40,14 @@ function handleSubmit(event){
 const submit_btn = document.getElementById('submit');
 submit_btn.addEventListener('click', handleSubmit);
 
-//ouvre la fenetre qui ajoute une étape 
+//ouvre la fenetre qui ajoute une Ã©tape 
 var updateButton = document.getElementById('add_step_btn');
 updateButton.addEventListener('click', function() {
     document.getElementById('favDialog').showModal();
 })
 
 
-//ajout d'une étape dans la selectbox ajout d'étape 
+//ajout d'une Ã©tape dans la selectbox ajout d'Ã©tape 
 function addStep(step_name){
     var table = document.getElementById("step_list");
     var row = document.createElement('tr');
@@ -64,7 +64,7 @@ function addStep(step_name){
 }
 
 
-//ajout d'une étape
+//ajout d'une Ã©tape
 function handleSubmitstep(event){
     event.preventDefault();
     var step_name = document.getElementById('step_name').value;

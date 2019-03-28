@@ -20,6 +20,6 @@
             <?php
         }
     }else{
-        echo "Il semble y avoir un probleme";
+        echo "Il semble y avoir un problème.";
     }
 ?>
