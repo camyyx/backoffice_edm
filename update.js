@@ -17,7 +17,7 @@ if(typeof jsonstring === 'undefined' || jsonstring === null){
     document.getElementById('script_name').value = json['script_name'];
     document.getElementById('summary').textContent = json['summary'];
     var liste = document.getElementById('step_list');
-    var stepsKeys = Object.keys(json['steps']);
+    var stepsKeys = Object.keys(steps);
     stepsKeys.forEach(element => {
         stepsList.push(element);
         var row = document.createElement('tr');
@@ -55,13 +55,13 @@ if(typeof jsonstring === 'undefined' || jsonstring === null){
 }
 function deleteBtn(){
     var step_name = this.id;
-    delete json.steps[step_name];
+    delete steps[step_name];
     var row = document.getElementsByName(step_name)[0];
     row.parentNode.removeChild(row);
 }
 function modifyButton(){
     var step_name = this.id;
-    var step = json.steps[step_name];
+    var step = steps[step_name];
     
     document.getElementById('step_name').value = step_name;
     document.getElementById('question').textContent = step['question'];
@@ -233,12 +233,12 @@ function modify(event){
             ],
             'options' : {}  
     }
-    if(step_name in json['steps']){ //!(json['steps'].hasOwnProperty(step_name))
-    //stepsList.includes(step_name) typeof json !== 'undefined')||    
-    }else{
+    if( !(step_name in steps)){ //!(json['steps'].hasOwnProperty(step_name))
+    //stepsList.includes(step_name) typeof json !== 'undefined')||  
         addStep(step_name);
+        steps[step_name] = data;  
     }
-    json['steps'][step_name] = data;
+    steps[step_name] = data;
     document.getElementsByClassName('step_form')[0].reset();
     favDialog.close(JSON.stringify(data, null, "  "));
 }
@@ -321,9 +321,4 @@ function addStep(step_name){
     btnDel.innerHTML = "Supprimer";
     row.appendChild(btnDel);
     btnDel.addEventListener('click', deleteBtn);
-}
-if(typeof errors !== 'undefined'){
-    console.log(errors);
-}else{
-    console.log('problème'); 
 }
