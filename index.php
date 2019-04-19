@@ -7,7 +7,7 @@
         
         <script src="./watchInputFile.js"  crossorigin="anonymous"></script>
     </head>
-    <body>
+    <body></body>
         <h1 style="margin: 0.5em">Ajoutez un fichier d'histoire</h1>        
         <h5 style="margin: 0.5em">N'ajouter que des fichiers en <code>.json</code></h5>
         <form style="margin: 0.5em" enctype="multipart/form-data" action="update.php" method="post">
@@ -27,9 +27,43 @@
 
 
         </form>
+        <form action = "addscriptV2.php" method = "get">
+            <input type="submit" value="Nouveau script">
+        </form>
+        <button onclick="afficherManuel()">Ajout manuel</button>
+        <form id = "manualForm" style="display:none" action="validate.php" method="post">
+            <!-- <input type="text" name="json" /> -->
+            <textarea name = "json"></textarea>
+            <input type="submit" value = "Valider"/>
+        </form>
     </body>
 </html>
+<!-- <?php 
+    // function get_scripts() {
+    //     // Get all scripts available on the folder
+    //     $files = glob(SCRIPTS_PATH . '/*.json');
+    //     $output = array();
 
+    //     foreach($files as $script) {
+    //         try {
+    //             $filename = pathinfo($script, PATHINFO_FILENAME);
+    //             $Script = new Script($filename);
+
+    //             if(!$not_usable) {
+    //                 $validator = $Script->validate_script();
+
+    //                 if($validator['usable'])
+    //                     $output[$filename] = $Script->get_header();
+    //             } else
+    //                 $output[$filename] = $Script->get_header();
+    //         } catch(Exception $e) {
+    //             echo $e;
+    //         }
+    //     }
+
+    //     return $output;
+    // }
+?> -->
 <style>
     body {
         display: flex;

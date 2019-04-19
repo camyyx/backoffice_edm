@@ -19,6 +19,7 @@ if(typeof jsonstring === 'undefined' || jsonstring === null){
     var liste = document.getElementById('step_list');
     var stepsKeys = Object.keys(steps);
     stepsKeys.forEach(element => {
+        //TODO: Mettre les boutons dans le tbody
         stepsList.push(element);
         var row = document.createElement('tr');
         row.setAttribute('name', element);
@@ -59,10 +60,11 @@ function deleteBtn(){
     var row = document.getElementsByName(step_name)[0];
     row.parentNode.removeChild(row);
 }
+//
 function modifyButton(){
     var step_name = this.id;
     var step = steps[step_name];
-    
+
     document.getElementById('step_name').value = step_name;
     document.getElementById('question').textContent = step['question'];
     document.getElementById('answer1').textContent = step['answers'][0]['answer'];
@@ -141,15 +143,25 @@ function modifyButton(){
 }
 
 function modify(event){
-    event.preventDefault();
+
+
+
+    document.querySelectorAll('#step_list > tr').forEach(x => {
+        console.log(x)
+    })
 
     var step_name = document.getElementById('step_name').value;
     var question = document.getElementById('question').value; 
 
-
     var answer1 = document.getElementById('answer1').value;
     var return_message1 = document.getElementById('return_message1').value;
+    if (return_message1 == ""){
+        return_message1 = "null";
+    }
     var next_step1 = document.getElementById('next_step1').value;
+    if(next_step1 == ""){
+        next_step1 = "null";
+    }
     var actions1 = [];
     if (document.getElementById('rankup1').checked){
         var rankup_message1 = document.getElementById('rankup_value1').value;
@@ -178,7 +190,13 @@ function modify(event){
 
     var answer2 = document.getElementById('answer2').value;
     var return_message2 = document.getElementById('return_message2').value;
+    if (return_message2 == ""){
+        return_message2 = "s";
+    }
     var next_step2 = document.getElementById('next_step2').value;
+    if(next_step2 == ""){
+        next_step2 = "null";
+    }
     if (document.getElementById('rankup2').checked){
         var rankup_value2 = document.getElementById('rankup_value2').value;
         var select_box = document.getElementById('rankup_select2');
@@ -222,8 +240,6 @@ function modify(event){
             'next_step' : next_step2
     };
 
-   
-
     var data = {
             // 'step_name' : step_name,
             'question': question,
@@ -236,19 +252,14 @@ function modify(event){
     if( !(step_name in steps)){ //!(json['steps'].hasOwnProperty(step_name))
     //stepsList.includes(step_name) typeof json !== 'undefined')||  
         addStep(step_name);
-        steps[step_name] = data;  
+        // steps[step_name] = data;  
     }
     steps[step_name] = data;
     document.getElementsByClassName('step_form')[0].reset();
-    favDialog.close(JSON.stringify(data, null, "  "));
+    // favDialog.close(JSON.stringify(data, null, "  "));
 }
 
 document.getElementsByClassName('step_form')[0].addEventListener('submit', modify);
-
-
-document.getElementsByClassName('close')[0].addEventListener('click', function() {
-    favDialog.close();
-});
 
 
 
@@ -284,7 +295,8 @@ function handleSubmit(event){
     input.value = JSON.stringify(json);
     sendForm.appendChild(input);
     document.getElementsByTagName("body")[0].appendChild(sendForm);
-    sendForm.submit();
+    sendForm.submit()
+    ;
 
 }
 document.getElementById('submit').addEventListener('click', handleSubmit);
@@ -322,3 +334,5 @@ function addStep(step_name){
     row.appendChild(btnDel);
     btnDel.addEventListener('click', deleteBtn);
 }
+
+function saveDraft(){}

@@ -1,13 +1,21 @@
 <?php
-    require_once "Script.php";
+
+require_once "Script.php";
 
     if( isset($_POST['json'])){
         $json = $_POST['json'];
         $script = new \Core\Script($json);
         $output = $script->validate_script();
+        
         if ($output['usable']){
-            echo "Le script est valide il sera ajouté au jeu !";
-            var_dump($json);
+            // echo "Le script est valide il sera ajouté au jeu !";
+            echo $_POST['json'];
+            $filename =  $json['script_name'] . ".json";
+            $file = fopen($filename, 'w');
+            fwrite($file, $json);
+            fclose($file);
+            require ('config.php');
+            file_put_contents($path, $file);
         }else{
             ?>
             <form id = "send" action = "update.php" method = "post">
@@ -20,6 +28,6 @@
             <?php
         }
     }else{
-        echo "Il semble y avoir un problème.";
+        echo "Il semble y avoir un probleme";
     }
 ?>

@@ -7,3 +7,14 @@ const watch = (e) => {
         document.getElementById('label').innerText = "Choisissez une histoire"
     }
 } 
+function afficherManuel(){
+    // var form = document.getElementById("manualForm");s
+
+    if(document.getElementById("manualForm").style.display == 'none'){
+        console.log("Afficher")
+        document.getElementById("manualForm").style.display = "flex";
+    }else{
+        document.getElementById("manualForm").style.display = "none";
+    }
+
+}

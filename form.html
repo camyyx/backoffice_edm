@@ -163,10 +163,11 @@ aria-hidden="true"
                             <label for="next_step2">Etape suivante</label>
                             <input class="form-control" type="text" id="next_step2" name="next_step2">
                     </div>
-                    <p><input class="btn btn-success" type="submit" class="submit"></p>
+                    <input onclick="modify(this)" class="btn btn-success" data-dismiss="modal" type="submit" class="submit">
                 </form>
     </div>
   </div>
 </div>
 </div>
 <button class="btn btn-success" id='submit'>Ajouter ce script</button>
+<button onclick="saveDraft()" class="btn btn-primary" id='draft'>Ajouter au brouillon</button>
