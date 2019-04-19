@@ -27,6 +27,7 @@
 
 
         </form>
+        <?php include_once ('listFiles.php')?>
         <form action = "addscriptV2.php" method = "get">
             <input type="submit" value="Nouveau script">
         </form>
@@ -38,32 +39,6 @@
         </form>
     </body>
 </html>
-<!-- <?php 
-    // function get_scripts() {
-    //     // Get all scripts available on the folder
-    //     $files = glob(SCRIPTS_PATH . '/*.json');
-    //     $output = array();
-
-    //     foreach($files as $script) {
-    //         try {
-    //             $filename = pathinfo($script, PATHINFO_FILENAME);
-    //             $Script = new Script($filename);
-
-    //             if(!$not_usable) {
-    //                 $validator = $Script->validate_script();
-
-    //                 if($validator['usable'])
-    //                     $output[$filename] = $Script->get_header();
-    //             } else
-    //                 $output[$filename] = $Script->get_header();
-    //         } catch(Exception $e) {
-    //             echo $e;
-    //         }
-    //     }
-
-    //     return $output;
-    // }
-?> -->
 <style>
     body {
         display: flex;

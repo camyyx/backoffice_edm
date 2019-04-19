@@ -1,3 +1,4 @@
 <?php
-    $path = "";
-?>
+    return [
+        "script_path" => "./scripts"
+    ];

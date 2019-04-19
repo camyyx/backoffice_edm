@@ -11,7 +11,6 @@ if(typeof jsonstring === 'undefined' || jsonstring === null){
         console.log(typeof jsonstring)
         var json = JSON.parse(jsonstring)
     }
-    // var json = JSON.parse(jsonstring);
     console.log(json);
     var steps = json.steps;
     document.getElementById('script_name').value = json['script_name'];
@@ -144,7 +143,7 @@ function modifyButton(){
 
 function modify(event){
 
-
+    
 
     document.querySelectorAll('#step_list > tr').forEach(x => {
         console.log(x)

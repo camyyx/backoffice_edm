@@ -8,13 +8,24 @@ const watch = (e) => {
     }
 } 
 function afficherManuel(){
-    // var form = document.getElementById("manualForm");s
+    // var form = document.getElementById("manualForm");
 
     if(document.getElementById("manualForm").style.display == 'none'){
-        console.log("Afficher")
         document.getElementById("manualForm").style.display = "flex";
     }else{
         document.getElementById("manualForm").style.display = "none";
     }
 
 }
+// function jsonChoice(){
+//     var radioList = document.getElementsByName("jsonChoice");
+//     radioList.forEach(element => {
+//         if (element.checked){
+//             console.log (element.id);
+//             var json = choiceList[element.id];
+//             document.getElementById('json').setAttribute('value', JSON.stringify(json));
+//             console.log(JSON.stringify(json));
+//             // document.getElementById('submitJson').submit();
+//         }
+//     });
+// }
