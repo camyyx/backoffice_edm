@@ -27,16 +27,28 @@
     }
     
     $list = get_scripts();
-    
+    echo "<ul class='list-group'>";
+    echo "<li class='list-group-item active'>Histoires disponible</li>";
     foreach($list as $key => $value){
+        echo "<li class='list-group-item'>";
         echo "<form id='json' action='update.php' method='post'>";
         echo "<input type = 'hidden' id = 'json' name = 'json' value=\"" . htmlspecialchars(json_encode($value)) . "\"/>"; 
-        echo "<label for=\"" .$key. "\">". $key ."</label>";
-        echo "<input type = 'submit' value = 'Modifier'/>";
+        echo "<div style='display:flex; margin:10px; justify-items:space-around; align-items: baseline'>";
+        echo "<label class='lead' style='margin-right: 10px' for=\"" .$key. "\">". $key ."</label>";
+        echo "<input class='btn btn-outline-primary btn-sm' type = 'submit' value = 'Modifier'/>";
+        echo "</div>";
         echo "</form>";
+        echo "</li>";
     }
+    echo "</ul>";
     // echo "<button onclick= 'jsonChoice()'>Modifier</button>"
 ?>
+
+<script>
+    const getName = (nameWithExtension) => {
+        return nameWithExtension.toUpperCase()
+    }
+</script>
     <!-- <script> var choiceList = <?php echo $list ;?>;</script>
     <form id = 'submitJson' action = 'update.php' method = 'post'  >
         <input type = 'hidden' id = 'json' name = 'json'/> 

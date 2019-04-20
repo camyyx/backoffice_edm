@@ -3,19 +3,9 @@ const watch = (e) => {
         document.getElementById('input').disabled = false
         document.getElementById('label').innerText = e.files[0].name
     } else {
-        document.getElementById('input').disabled = true    
+        document.getElementById('input').disabled = true
         document.getElementById('label').innerText = "Choisissez une histoire"
     }
-} 
-function afficherManuel(){
-    // var form = document.getElementById("manualForm");
-
-    if(document.getElementById("manualForm").style.display == 'none'){
-        document.getElementById("manualForm").style.display = "flex";
-    }else{
-        document.getElementById("manualForm").style.display = "none";
-    }
-
 }
 // function jsonChoice(){
 //     var radioList = document.getElementsByName("jsonChoice");
