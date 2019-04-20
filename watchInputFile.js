@@ -1,3 +1,4 @@
+// Check if the file is a JSON or not. And activate the buttonss
 const watch = (e) => {
     if (e.files[0].name.split('.')[1] === 'json') {
         document.getElementById('input').disabled = false
