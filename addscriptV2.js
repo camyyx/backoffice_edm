@@ -1,4 +1,3 @@
-
 // var fileData = {};
 // var steps = {};
 
@@ -132,7 +131,7 @@
 //     if (actions2.length === 0){
 //         actions2.push({'action' : 'addpoints', 'value': '1'});
 //     }
-    
+
 //     var answer1 = {
 //             'answer' : answer1,
 //             'return_message': return_message1,
@@ -146,7 +145,7 @@
 //             'next_step' : next_step2
 //     };
 
-   
+
 
 //     var data = {
 //             // 'step_name' : step_name,
@@ -170,6 +169,3 @@
 // dialog_close.addEventListener('click', function() {
 //     favDialog.close();
 // });
-
-
-

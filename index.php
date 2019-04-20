@@ -29,8 +29,8 @@
         </form>
         <?php include_once ('listFiles.php')?>
         <div style="display:flex; flex-direction:column">
-            <form style="margin: 10px" action = "addscriptV2.php" method = "get">
-                <input class="btn btn-info" type="submit" value="Nouveau script">
+            <form style="margin: 10px" action = "update.php" method = "get">
+                <input name="newScript" class="btn btn-info" type="submit" value="Nouveau Script">
             </form>
             <div style="display:flex; flex-direction:column">
             <button style="margin: 10px; transition: width 0.5s" class="btn btn-warning" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
