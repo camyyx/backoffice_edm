@@ -306,9 +306,9 @@ function modify(event) {
         'options': {}
     }
     if (!(step_name in steps)) { //!(json['steps'].hasOwnProperty(step_name))
-        //stepsList.includes(step_name) typeof json !== 'undefined')||  
+        //stepsList.includes(step_name) typeof json !== 'undefined')||
         addStep(step_name);
-        // steps[step_name] = data;  
+        // steps[step_name] = data;
     }
     steps[step_name] = data;
     document.getElementsByClassName('step_form')[0].reset();
@@ -356,14 +356,14 @@ function handleSubmit(event) {
 }
 document.getElementById('submit').addEventListener('click', handleSubmit);
 
-//ouvre la fenetre qui ajoute une étape 
+//ouvre la fenetre qui ajoute une étape
 var updateButton = document.getElementById('add_step_btn');
 updateButton.addEventListener('click', function () {
     // document.getElementById('favDialog').showModal();
 })
 
 
-//ajout d'une étape dans la selectbox ajout d'étape 
+//ajout d'une étape dans la selectbox ajout d'étape
 function addStep(step_name) {
     var table = document.getElementById("step_list");
     var row = document.createElement('tr');
@@ -390,10 +390,10 @@ function addStep(step_name) {
     btnDel.addEventListener('click', deleteBtn);
 }
 
-function saveDraft() {}
+function saveDraft() { }
 
 // Check if the file is a JSON or not. And activate the buttonss
-const watch = (e) => {
+function watch(e) {
     if (e.files[0].name.split('.')[1] === 'json') {
         document.getElementById('input').disabled = false
         document.getElementById('label').innerText = e.files[0].name

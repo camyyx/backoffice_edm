@@ -1,1 +1,10 @@
-*.json
+./js/ugly_app.js
+
+
+{.json
+
+node_modules
+
+yarn.lock
+
+yarn-error.log
