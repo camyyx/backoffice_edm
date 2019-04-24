@@ -62,7 +62,6 @@ if (typeof jsonstring === 'undefined' || jsonstring === null) {
     var liste = document.getElementById('step_list');
     var stepsKeys = Object.keys(steps);
     stepsKeys.forEach(element => {
-        //TODO: Mettre les boutons dans le tbody
         stepsList.push(element);
         var row = document.createElement('tr');
         row.setAttribute('name', element);

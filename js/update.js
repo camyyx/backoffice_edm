@@ -2,23 +2,19 @@ var stepsList = [];
 function update(jsonstring) {
     if (typeof jsonstring === 'undefined' || jsonstring === null) {
         var json = {};
-        var steps = {};
+        let steps = {}
     } else {
-        console.log(typeof json)
         if (typeof jsonstring === 'object') {
             var json = jsonstring
         } else {
-            console.log(typeof jsonstring)
             var json = JSON.parse(jsonstring)
         }
-        console.log(json);
-        var steps = json.steps;
+        let steps = json.steps;
         document.getElementById('script_name').value = json['script_name'];
         document.getElementById('summary').textContent = json['summary'];
         var liste = document.getElementById('step_list');
         var stepsKeys = Object.keys(steps);
         stepsKeys.forEach(element => {
-            //TODO: Mettre les boutons dans le tbody
             stepsList.push(element);
             var row = document.createElement('tr');
             row.setAttribute('name', element);
@@ -32,6 +28,10 @@ function update(jsonstring) {
             opt.innerHTML = element;
             select_box.appendChild(opt);
 
+            const btnFlex = document.createElement('div')
+            btnFlex.style.display = "flex"
+            row.appendChild(btnFlex)
+
             var btn = document.createElement('button');
             btn.setAttribute('id', element);
             btn.innerHTML = "Modifier";
@@ -40,8 +40,8 @@ function update(jsonstring) {
             btn.setAttribute("type", "button")
             btn.setAttribute("data-toggle", "modal")
             btn.setAttribute("data-target", "#exampleModal")
-            row.appendChild(btn);
-            btn.addEventListener('click', modifyButton);
+            btnFlex.appendChild(btn);
+            btn.addEventListener('click', () => modifyButton(steps[element], element));
 
 
             var btnDel = document.createElement('button');
@@ -49,21 +49,28 @@ function update(jsonstring) {
             btnDel.innerHTML = "Supprimer";
             btnDel.className = 'btn btn-danger'
             btnDel.style.margin = '0.5em'
-            row.appendChild(btnDel);
-            btnDel.addEventListener('click', deleteBtn);
+            btnFlex.appendChild(btnDel);
+            btnDel.addEventListener('click', () => deleteBtn(steps[element], element));
+
+            document.getElementById('submit').addEventListener('click', () => handleSubmit(steps, json));
         });
     }
 }
-function deleteBtn() {
-    var step_name = this.id;
+
+// Fonction du bouton supprimé
+function deleteBtn(steps, id) {
+    var step_name = id;
     delete steps[step_name];
     var row = document.getElementsByName(step_name)[0];
     row.parentNode.removeChild(row);
 }
-//
-function modifyButton() {
-    var step_name = this.id;
-    var step = steps[step_name];
+
+// Fontion du bouton modifié
+function modifyButton(steps, id) {
+    var step_name = id;
+    var step = steps;
+
+    console.log(steps)
 
     document.getElementById('step_name').value = step_name;
     document.getElementById('question').textContent = step['question'];
@@ -261,23 +268,23 @@ document.getElementsByClassName('step_form')[0].addEventListener('submit', modif
 
 
 //soumission du formulaire contenant le script complet
-function handleSubmit(event) {
-    event.preventDefault();
+function handleSubmit(steps, json) {
     var script_name = document.getElementById('script_name').value;
     var summary = document.getElementById('summary').value;
     var select_box = document.getElementById('first_step');
+
     var first_step = select_box.options[select_box.selectedIndex].text;
     var selectpack = document.getElementById('pack');
     var pack = selectpack.options[selectpack.selectedIndex].id;
     var selectcharacter = document.getElementById('character_id');
-    var charcter = selectcharacter.options[selectcharacter.selectedIndex].id;
+    var character = selectcharacter.options[selectcharacter.selectedIndex].id;
     json = {
         'script_name': script_name,
         'summary': summary,
         'version': 1,
         'script_background': "blabla.jpg",
         'initial_step': first_step,
-        'character_id': charcter,
+        'character_id': character,
         'pack': pack,
         'steps': steps
     };
@@ -292,11 +299,9 @@ function handleSubmit(event) {
     input.value = JSON.stringify(json);
     sendForm.appendChild(input);
     document.getElementsByTagName("body")[0].appendChild(sendForm);
-    sendForm.submit()
-        ;
+    sendForm.submit();
 
 }
-document.getElementById('submit').addEventListener('click', handleSubmit);
 
 //ouvre la fenetre qui ajoute une étape
 var updateButton = document.getElementById('add_step_btn');
@@ -326,7 +331,7 @@ function addStep(step_name) {
     btn.dataset.toggle = "modal"
     btn.dataset.target = "#exampleModal"
     row.appendChild(btn);
-    btn.addEventListener('click', modifyButton);
+    btn.addEventListener('click', () => modifyButton(steps[step_name], step_name));
     var btnDel = document.createElement('button');
     btnDel.setAttribute('id', step_name);
     btnDel.innerHTML = "Supprimer";
@@ -334,7 +339,7 @@ function addStep(step_name) {
     btnDel.type = "button"
     btnDel.className = "btn btn-danger"
     row.appendChild(btnDel);
-    btnDel.addEventListener('click', deleteBtn);
+    btnDel.addEventListener('click', () => deleteBtn(steps[step_name], step_name));
 }
 
 function saveDraft() { }
