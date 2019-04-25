@@ -59,14 +59,7 @@ if (typeof jsonstring === 'undefined' || jsonstring === null) {
 // Fonction du bouton supprimé
 function deleteBtn(id) {
     var step_name = id;
-    for (const key in steps) {
-        delete steps[key]
-    }
     delete steps[step_name]
-    // delete steps[step_name];
-    // delete steps[question];
-    // delete steps[answers]
-    // delete steps[option]
     var row = document.getElementsByName(step_name)[0];
     row.parentNode.removeChild(row);
 }
