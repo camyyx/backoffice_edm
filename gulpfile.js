@@ -5,7 +5,7 @@ const
     del = require('del'),
     babel = require('gulp-babel')
 
-gulp.task('js', async () => {
+gulp.task('default', async () => {
     await del('./js/ugly_app.js')
 
     return gulp.src('./js/*.js')
@@ -16,5 +16,5 @@ gulp.task('js', async () => {
 })
 
 gulp.task('js:watch', () => {
-	return gulp.watch('./js/*js', gulp.series('js'))
+    return gulp.watch('./js/*js', gulp.series('js'))
 })
