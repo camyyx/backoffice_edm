@@ -40,7 +40,7 @@ if (typeof jsonstring === 'undefined' || jsonstring === null) {
         btn.setAttribute("data-toggle", "modal")
         btn.setAttribute("data-target", "#exampleModal")
         btnFlex.appendChild(btn);
-        btn.addEventListener('click', () => modifyButton(element));
+        btn.addEventListener('click', () => modifyButton(steps, element));
 
 
         var btnDel = document.createElement('button');
@@ -49,7 +49,7 @@ if (typeof jsonstring === 'undefined' || jsonstring === null) {
         btnDel.className = 'btn btn-danger'
         btnDel.style.margin = '0.5em'
         btnFlex.appendChild(btnDel);
-        btnDel.addEventListener('click', () => deleteBtn(element));
+        btnDel.addEventListener('click', () => deleteBtn(steps, element));
 
         document.getElementById('submit').addEventListener('click', () => handleSubmit(steps, json));
     });
@@ -57,19 +57,20 @@ if (typeof jsonstring === 'undefined' || jsonstring === null) {
 
 
 // Fonction du bouton supprimé
-function deleteBtn(id) {
+function deleteBtn(steps, id) {
     var step_name = id;
     delete steps[step_name]
     var row = document.getElementsByName(step_name)[0];
     row.parentNode.removeChild(row);
+    document.getElementById('submit').addEventListener('click', () => handleSubmit(steps, json));
 }
 
 // Fontion du bouton modifié
-function modifyButton(id) {
+function modifyButton(steps, id) {
     var step_name = id;
-    var step = steps;
+    var step = steps[step_name];
 
-    console.log(steps)
+    console.log(step)
 
     document.getElementById('step_name').value = step_name;
     document.getElementById('question').textContent = step['question'];
@@ -145,15 +146,13 @@ function modifyButton(id) {
     if (!!step['answers'][1]["next_step"]) {
         document.getElementById('next_step2').value = step['answers'][1]["next_step"];
     }
+
+    document.getElementById('modifyBtn').addEventListener('click', () => modify(steps))
 }
 
-function modify(event) {
+function modify(steps) {
 
-    event.preventDefault()
-
-    document.querySelectorAll('#step_list > tr').forEach(x => {
-        console.log(x)
-    })
+    console.log(steps)
 
     var step_name = document.getElementById('step_name').value;
     var question = document.getElementById('question').value;
@@ -260,8 +259,12 @@ function modify(event) {
         // steps[step_name] = data;
     }
     steps[step_name] = data;
+    console.log(steps[step_name])
+    document.getElementById('submit').addEventListener('click', () => handleSubmit(data, json));
     document.getElementsByClassName('step_form')[0].reset();
     // favDialog.close(JSON.stringify(data, null, "  "));
+
+    document.getElementById('submit').addEventListener('click', () => handleSubmit(steps, json));
 }
 
 document.getElementsByClassName('step_form')[0].addEventListener('submit', modify);
