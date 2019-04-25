@@ -28,17 +28,28 @@
             {
                 echo "<button onclick='func(this.innerText)' class='list-group-item'>$err</button>";
             }
-
+            if(isset($_POST['errors'])){
+                echo '<div class="col-md-6">';
+                echo '<ul id="superUL" class="list-group">';
+                echo '<li style="text" class="list-group-item list-group-item-danger">Vous avez quelques erreurs</li>';
+                echo array_map(allErrors, json_decode($_POST['errors']));
+                echo '</ul>';
+                echo '<script>';
+                echo 'var errors = ' . json_encode($_POST['errors']) . ';';
+                echo 'document.getElementById("superUL").lastChild.remove();';
+                echo '</script>';
+                echo'</div>';
+            }
             if (isset($_FILES['json'])) {
                 echo '<script>';
                 echo 'var jsonstring = ' . file_get_contents($_FILES['json']['tmp_name']) . ';';
-                include('./js/update.js');
+                echo 'update(jsonstring)';
                 echo '</script>';
             }
             if (isset($_POST['json'])) {
                 echo '<script>';
                 echo 'var jsonstring = ' . json_encode($_POST['json']) . ';';
-                include('./js/update.js');
+                echo 'update(jsonstring)';
                 echo '</script>';
             }
             if (isset($_GET['newScript'])) {
@@ -75,7 +86,7 @@
                         }
                     }
                 };';
-                include('./js/update.js');
+                echo 'update(jsonstring)';
                 echo '</script>';
             }
                 ?>
