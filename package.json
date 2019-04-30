@@ -1,0 +1,25 @@
+{
+  "name": "become_backoffice",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://git.ahh.si/sn-dai-18-20/become_backoffice.git",
+  "author": "KamehaMehdi <dahmammehdi@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "js": "./node_modules/.bin/gulp js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/preset-env": "^7.4.3",
+    "babel-preset-env": "^1.7.0",
+    "del": "^4.1.0",
+    "gulp": "^4.0.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-uglify": "^3.0.2"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1"
+  }
+}
