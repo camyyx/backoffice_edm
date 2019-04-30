@@ -45,9 +45,10 @@
 </form>
 <table>
     <thead>
-        <tr>
+        <tr name="add_step">
             <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                    style="margin-bottom: 1em" id="add_step_btn">+ Ajouter une étape</button></td>
+                    style="margin-bottom: 1em" id="add_step_btn">+ Ajouter une
+                    étape</button></td>
         </tr>
     </thead>
     <tbody id="step_list">
@@ -65,21 +66,21 @@
                 <form class="step_form" method="dialog">
                     <div class="form-group">
                         <label for="step_name">Nom de l'étape:</label>
-                        <input class="form-control" type="text" id="step_name" name="step_name">
+                        <input class="form-control form_modal" type="text" id="step_name" name="step_name">
                     </div>
                     <div class="form-group">
                         <label for="question">Question:</label>
-                        <textarea class="form-control" type="text" id="question" name="question"></textarea>
+                        <textarea class="form-control form_modal" type="text" id="question" name="question"></textarea>
                     </div>
                     <hr>
                     <h3>Réponse 1</h3>
                     <div class="form-group">
                         <label for="answer1">Réponse</label>
-                        <textarea class="form-control" type="text" id="answer1" name="answer1"></textarea>
+                        <textarea class="form-control form_modal" type="text" id="answer1" name="answer1"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="return_message1">Message de la réponse</label>
-                        <textarea class="form-control" type="text" id="return_message1"
+                        <textarea class="form-control form_modal" type="text" id="return_message1"
                             name="return_message1"></textarea>
                     </div>
 
@@ -88,25 +89,26 @@
                             <div class="col-sm"
                                 style='display: flex; flex-direction: column; justify-content: space-around'>
                                 <div class="custom-control custom-checkbox">
-                                    <input class="custom-control-input" type="checkbox" name="rankup1" value="rankup"
-                                        id='rankup1'>
+                                    <input class="custom-control-input form_modal" type="checkbox" name="rankup1"
+                                        value="rankup" id='rankup1'>
                                     <label class="custom-control-label" for="rankup1">Passer un niveau
                                         suppérieur</label>
                                 </div>
                                 <div class="custom-control custom-checkbox">
-                                    <input class="custom-control-input" type="checkbox" name="addpoints1"
+                                    <input class="custom-control-input form_modal" type="checkbox" name="addpoints1"
                                         value="addpoints" id='addpoints1'>
                                     <label class="custom-control-label" for="addpoints1">Ajouter points</label>
                                 </div>
                                 <div class="custom-control custom-checkbox">
-                                    <input class="custom-control-input" type="checkbox" name="endgame1" value="endgame"
-                                        id='endgame1'>
+                                    <input class="custom-control-input form_modal" type="checkbox" name="endgame1"
+                                        value="endgame" id='endgame1'>
                                     <label class="custom-control-label" for="endgame1">Fin du jeu</label>
                                 </div>
                             </div>
                             <div class="col-sm">
                                 <label for="rankup_value1">Message</label>
-                                <textarea class="form-control" name="rankup_value1" id="rankup_value1"></textarea>
+                                <textarea class="form-control form_modal" name="rankup_value1"
+                                    id="rankup_value1"></textarea>
                                 <select style="margin-top: 1em" class="custom-select" name="" id="rankup_select1">
                                     <option value="gold">Or</option>
                                     <option value="silver">Argent</option>
@@ -117,17 +119,17 @@
                     </div>
                     <div class="form-group">
                         <label for="next_step1">Etape suivante</label>
-                        <input class="form-control" type="text" id="next_step1" name="next_step1">
+                        <input class="form-control form_modal" type="text" id="next_step1" name="next_step1">
                     </div>
                     <hr>
                     <h3>Réponse 2</h3>
                     <div class="form-group">
                         <label for="answer2">Réponse</label>
-                        <textarea class="form-control" type="text" id="answer2" name="answer2"></textarea>
+                        <textarea class="form-control form_modal" type="text" id="answer2" name="answer2"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="return_message2">Message de la réponse</label>
-                        <textarea class="form-control" type="text" id="return_message2"
+                        <textarea class="form-control form_modal" type="text" id="return_message2"
                             name="return_message2"></textarea>
                     </div>
                     <div class="container">
@@ -135,19 +137,19 @@
                             <div class="col-sm"
                                 style='display: flex; flex-direction: column; justify-content: space-around'>
                                 <div class="custom-control custom-checkbox">
-                                    <input class="custom-control-input" type="checkbox" name="rankup2" value="rankup"
-                                        id='rankup2'>
+                                    <input class="custom-control-input form_modal" type="checkbox" name="rankup2"
+                                        value="rankup" id='rankup2'>
                                     <label class="custom-control-label" for="rankup2">Passer un niveau
                                         suppérieur</label>
                                 </div>
                                 <div class="custom-control custom-checkbox">
-                                    <input class="custom-control-input" type="checkbox" name="addpoints1"
+                                    <input class="custom-control-input form_modal" type="checkbox" name="addpoints1"
                                         value="addpoints" id='addpoints2'>
                                     <label class="custom-control-label" for="addpoints2">Ajouter points</label>
                                 </div>
                                 <div class="custom-control custom-checkbox">
-                                    <input class="custom-control-input" type="checkbox" name="endgame1" value="endgame"
-                                        id='endgame2'>
+                                    <input class="custom-control-input form_modal" type="checkbox" name="endgame1"
+                                        value="endgame" id='endgame2'>
                                     <label class="custom-control-label" for="endgame2">Fin du jeu</label>
                                 </div>
                             </div>
@@ -164,7 +166,7 @@
                     </div>
                     <div class="form-group">
                         <label for="next_step2">Etape suivante</label>
-                        <input class="form-control" type="text" id="next_step2" name="next_step2">
+                        <input class="form-control form_modal" type="text" id="next_step2" name="next_step2">
                     </div>
                     <input id="modifyBtn" class="btn btn-success" data-dismiss="modal" type="submit" class="submit">
                 </form>

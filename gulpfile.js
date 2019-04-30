@@ -5,14 +5,24 @@ const
     del = require('del'),
     babel = require('gulp-babel')
 
-gulp.task('js', async () => {
-    await del('./js/ugly_app.js')
+gulp.task('build', () => {
 
     return gulp.src('./js/*.js')
         .pipe(babel({ presets: ['@babel/env'] }))
         .pipe(concat('ugly_app.js'))
         .pipe(uglify())
-        .pipe(gulp.dest('./js/'))
+        .pipe(gulp.dest('./dist/js/'))
+})
+
+gulp.task('js', () => {
+
+    del('./dist/*.js')
+
+    return gulp.src('./js/*.js')
+        .pipe(babel({ presets: ['@babel/env'], plugins: ['@babel/plugin-proposal-class-properties'] }))
+        .pipe(concat('ugly_app.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('./dist/js/'))
 })
 
 gulp.task('default', () => {

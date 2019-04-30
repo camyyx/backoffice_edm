@@ -19,6 +19,7 @@ function update(jsonstring) {
         var liste = document.getElementById('step_list');
         var stepsKeys = Object.keys(steps);
         stepsKeys.forEach(element => {
+            const stepElement = steps[element]
             stepsList.push(element);
             var row = document.createElement('tr');
             row.setAttribute('name', element);
@@ -39,7 +40,7 @@ function update(jsonstring) {
             var btn = document.createElement('button');
             btn.setAttribute('id', element);
             btn.innerHTML = "Modifier";
-            btn.className = 'btn btn-info'
+            btn.className = 'btn btn-info boutonModifier'
             btn.style.margin = '0.5em'
             btn.setAttribute("type", "button")
             btn.setAttribute("data-toggle", "modal")
@@ -55,7 +56,6 @@ function update(jsonstring) {
             btnDel.style.margin = '0.5em'
             btnFlex.appendChild(btnDel);
             btnDel.addEventListener('click', () => deleteBtn(steps, element));
-
             document.getElementById('submit').addEventListener('click', () => handleSubmit(steps, json));
         });
     }
@@ -68,14 +68,16 @@ function deleteBtn(steps, id) {
     delete steps[step_name]
     var row = document.getElementsByName(step_name)[0];
     row.parentNode.removeChild(row);
+    document.getElementById('submit').removeEventListener('click', console.log("removed"));
     document.getElementById('submit').addEventListener('click', () => handleSubmit(steps, json));
 }
 
 // Fontion du bouton modifié
 function modifyButton(steps, id) {
+    document.getElementById('modifyBtn').removeEventListener('click', console.log("removed modify"))
+    document.getElementsByClassName("boutonModifier")
     var step_name = id;
     var step = steps[step_name];
-
     document.getElementById('step_name').value = step_name;
     document.getElementById('question').textContent = step['question'];
     document.getElementById('answer1').textContent = step['answers'][0]['answer'];
@@ -150,12 +152,15 @@ function modifyButton(steps, id) {
     if (!!step['answers'][1]["next_step"]) {
         document.getElementById('next_step2').value = step['answers'][1]["next_step"];
     }
-
-    document.getElementById('modifyBtn').addEventListener('click', () => modify(steps))
+    document.getElementById('modifyBtn').addEventListener('click', () => modify(steps, step_name))
 }
 
-function modify(steps) {
+function modify(steps, name) {
 
+    for (let index = 0; index < document.getElementsByClassName("boutonModifier").length; index++) {
+        const el = document.getElementsByClassName("boutonModifier")[index];
+        el.addEventListener('click', () => modifyButton(steps, name))
+    }
 
     var step_name = document.getElementById('step_name').value;
     var question = document.getElementById('question').value;
@@ -246,7 +251,6 @@ function modify(steps) {
         'actions': actions2,
         'next_step': next_step2
     };
-
     var data = {
         // 'step_name' : step_name,
         'question': question,
@@ -256,21 +260,16 @@ function modify(steps) {
         ],
         'options': {}
     }
-    if (!(step_name in steps)) { //!(json['steps'].hasOwnProperty(step_name))
+    if (step_name != name) { //!(json['steps'].hasOwnProperty(step_name))
         //stepsList.includes(step_name) typeof json !== 'undefined')||
-        addStep(step_name);
+        addStep(steps, step_name);
         // steps[step_name] = data;
     }
-    steps[step_name] = data;
+    // steps[step_name] = data;
+    document.getElementById('submit').removeEventListener('click', console.log("removed submit"));
     document.getElementById('submit').addEventListener('click', () => handleSubmit(data, json));
-    document.getElementsByClassName('step_form')[0].reset();
-    // favDialog.close(JSON.stringify(data, null, "  "));
 
-    document.getElementById('submit').addEventListener('click', () => handleSubmit(steps, json));
 }
-
-document.getElementsByClassName('step_form')[0].addEventListener('submit', modify);
-
 
 
 //soumission du formulaire contenant le script complet
@@ -307,14 +306,12 @@ function handleSubmit(steps, json) {
     document.getElementsByTagName("body")[0].appendChild(sendForm);
     sendForm.submit();
 
-}
 
-//ouvre la fenetre qui ajoute une étape
-var updateButton = document.getElementById('add_step_btn');
+}
 
 
 //ajout d'une étape dans la selectbox ajout d'étape
-function addStep(step_name) {
+function addStep(steps, step_name) {
     var table = document.getElementById("step_list");
     var row = document.createElement('tr');
     row.setAttribute('name', step_name);
@@ -337,6 +334,7 @@ function addStep(step_name) {
     btn.dataset.toggle = "modal"
     btn.dataset.target = "#exampleModal"
     row.appendChild(btn);
+    btn.removeEventListener('click', console.log("removed"));
     btn.addEventListener('click', () => modifyButton(steps[step_name], step_name));
     var btnDel = document.createElement('button');
     btnDel.setAttribute('id', step_name);
@@ -345,6 +343,7 @@ function addStep(step_name) {
     btnDel.type = "button"
     btnDel.className = "btn btn-danger"
     row.appendChild(btnDel);
+    btnDel.removeEventListener('click', console.log("removed"));
     btnDel.addEventListener('click', () => deleteBtn(steps[step_name], step_name));
 }
 

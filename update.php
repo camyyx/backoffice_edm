@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/jsquery.min.js"></script>
-    <script src="./js/ugly_app.js"></script>
+    <script src="./dist/js/ugly_app.js"></script>
 </head>
 
 <body>
