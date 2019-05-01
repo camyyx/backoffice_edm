@@ -60,6 +60,7 @@ function deleteBtn() {
 }
 //
 function modifyButton() {
+    console.log("bonsoir")
     var step_name = this.id;
     var step = steps[step_name];
 
@@ -140,9 +141,7 @@ function modifyButton() {
     // document.getElementById('favDialog').showModal();
 }
 
-function modify(event) {
-
-
+function modify() {
 
     document.querySelectorAll('#step_list > tr').forEach(x => {
         console.log(x)
@@ -324,11 +323,20 @@ function addStep(step_name) {
     var btn = document.createElement('button');
     btn.setAttribute('id', step_name);
     btn.innerHTML = "Modifier";
+    btn.className = 'btn btn-info'
+    btn.style.margin = '0.5em'
+    btn.setAttribute("type", "button")
+    btn.setAttribute("data-toggle", "modal")
+    btn.setAttribute("data-target", "#exampleModal")
     row.appendChild(btn);
     btn.addEventListener('click', modifyButton);
+
+
     var btnDel = document.createElement('button');
     btnDel.setAttribute('id', step_name);
     btnDel.innerHTML = "Supprimer";
+    btnDel.className = 'btn btn-danger'
+    btnDel.style.margin = '0.5em'
     row.appendChild(btnDel);
     btnDel.addEventListener('click', deleteBtn);
 }
