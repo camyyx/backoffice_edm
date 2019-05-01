@@ -1,3 +1,9 @@
+<div
+    style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin-bottom: 30px">
+    <a href="/"><button class="fas fa-home btn btn-outline-secondary"></button></a>
+    <h1>Modification d'histoire</h1>
+</div>
+
 <form class="add_form">
     <div class="form-group row">
         <label class="col-form-label col-sm-4" for="script_name">Nom du scénario:</label>
@@ -43,20 +49,26 @@
     </div>
     <hr>
 </form>
-<table>
-    <thead>
-        <tr>
-            <td>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                    style="margin-bottom: 1em" id="add_step_btn">+ Ajouter une étape</button>
-            </td>
-        </tr>
-    </thead>
-    <tbody id="step_list">
-
-    </tbody>
-</table>
-
+<div style="display:flex; flex-direction: row; align-items: center">
+    <h1 style="margin-right: 50px">Ajouter une étape</h1>
+    <button style="" class="btn btn-outline-primary fas fa-plus" type="button" data-toggle="modal"
+        data-target="#exampleModal" style="margin-bottom: 1em" id="add_step_btn">
+    </button>
+</div>
+<div style="display: flex; flex-direction: column">
+    <table>
+        <tbody id="step_list">
+        </tbody>
+    </table>
+    <div style="display:flex; flex-direction: row; margin-top: 30px">
+        <button style="margin-right: 50px" onclick="handleSubmit()" class="btn btn-outline-success" id='submit'>Ajouter
+            ce
+            script</button>
+        <button onclick="saveDraft()" class="btn btn-outline-primary" id='draft'>Ajouter au
+            brouillon</button>
+    </div>
+</div>
+</form>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -176,5 +188,3 @@
         </div>
     </div>
 </div>
-<button onclick="handleSubmit()" class="btn btn-success" id='submit'>Ajouter ce script</button>
-<button onclick="saveDraft()" class="btn btn-primary" id='draft'>Ajouter au brouillon</button>
