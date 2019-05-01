@@ -15,7 +15,7 @@
     <body>
         <div style='margin-top:2em; margin-bottom: 2em' class="container">
         <div class="row">
-                <div class="col-lg-6 col-md-6">
+                <div class="col-lg-6 col-md-8">
                     <?php include('form.html') ?>
                 </div>
                 <!-- Latest compiled and minified JavaScript -->
@@ -32,7 +32,7 @@
             }
 
             if(isset($_POST['errors'])){
-                echo '<div class="col-lg-6 col-md-6">';
+                echo '<div class="col-lg-6 col-md-4">';
                 echo '<ul id="superUL" class="list-group">';
                 echo '<li style="text" class="list-group-item list-group-item-danger">Vous avez quelques erreurs</li>';
                 echo array_map(allErrors, json_decode($_POST['errors']));
