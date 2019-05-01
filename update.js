@@ -60,7 +60,6 @@ function deleteBtn() {
 }
 //
 function modifyButton() {
-    console.log("bonsoir")
     var step_name = this.id;
     var step = steps[step_name];
 
@@ -320,6 +319,7 @@ function addStep(step_name) {
     opt.value = step_name;
     opt.innerHTML = step_name;
     select_box.appendChild(opt);
+
     var btn = document.createElement('button');
     btn.setAttribute('id', step_name);
     btn.innerHTML = "Modifier";
