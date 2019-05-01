@@ -32,7 +32,7 @@
             }
 
             if(isset($_POST['errors'])){
-                echo '<div class="col-lg-6 col-md-6 col-6 col-xs-6">';
+                echo '<div class="col-lg-6 col-md-6">';
                 echo '<ul id="superUL" class="list-group">';
                 echo '<li style="text" class="list-group-item list-group-item-danger">Vous avez quelques erreurs</li>';
                 echo array_map(allErrors, json_decode($_POST['errors']));
