@@ -6,6 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./css/bootstrap.min.css">
 
+        <script src="./js/jquery.min.js"></script>
+        <script src="./js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
         <script src="./watchInputFile.js"></script>
     </head>
     <body style="text-align:center">
@@ -45,6 +48,31 @@
             </div>
             </div>
         </div>
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" id="deleteModal">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Voulez vous vraiment supprimer ce fichier ?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="padding: 30px">
+                <div
+                    style="display: flex; flex-direction: column; text-align: center; align-content: center; align-items: center">
+                    <code id="codeFileName" style="margin-bottom: 20px"></code>
+                    <div class="modal-footer">
+                        <form method="POST" action="/delete.php">
+                            <button type="submit" style="margin-right: 10px" class="btn btn-outline-success">Valider</button>
+                            <input id='delete' type="hidden" name="delete">
+                        </form>
+                            <button style="margin-left: 10px" class="btn btn-outline-danger" data-dismiss="modal">Refuser</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
     </body>
 </html>
 <style>

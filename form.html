@@ -194,22 +194,26 @@
     id="modalDraft">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <div class="modal-body" style="padding: 30px">
+            <div class="modal-header">
+                <h5>Ce fichier sera télécharger sur votre machine</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
+            </div>
+            <div class="modal-body" style="padding: 30px">
                 <div
                     style="display: flex; flex-direction: column; text-align: center; align-content: center; align-items: center">
-                    <h5 style="margin-bottom: 20px; margin-top: 30px">Ce fichier sera télécharger sur votre machine</h5>
                     <code id="codeFileName" style="margin-bottom: 20px"></code>
-                    <div style="display: flex; flex-direction: row;">
+                    <div class="modal-footer">
                         <form method="POST" action="/validate.php">
                             <button type="submit" style="margin-right: 10px"
                                 class="btn btn-outline-success">Valider</button>
-                            <button style="margin-left: 10px" class="btn btn-outline-danger">Refuser</button>
                             <input name="draft" type="hidden" id="jsonDraft">
                             <input type="hidden" id="jsonDraftName" name="step_name">
                         </form>
+                        <button style="margin-left: 10px" class="btn btn-outline-danger"
+                            data-dismiss="modal">Refuser</button>
+
                     </div>
                 </div>
             </div>
