@@ -258,48 +258,6 @@ function modify() {
 document.getElementsByClassName('step_form')[0].addEventListener('submit', modify);
 
 
-
-//soumission du formulaire contenant le script complet
-function handleSubmit(event) {
-    var script_name = document.getElementById('script_name').value;
-    var summary = document.getElementById('summary').value;
-    var select_box = document.getElementById('first_step');
-    var first_step = select_box.options[select_box.selectedIndex].text;
-    var selectpack = document.getElementById('pack');
-    var pack = selectpack.options[selectpack.selectedIndex].id;
-    var selectcharacter = document.getElementById('character_id');
-    var charcter = selectcharacter.options[selectcharacter.selectedIndex].id;
-    json = {
-        'script_name': script_name,
-        'summary': summary,
-        'version': 1,
-        'script_background': "blabla.jpg",
-        'initial_step': first_step,
-        'character_id': charcter,
-        'pack': pack,
-        'steps': steps
-    };
-    var sendForm = document.createElement("form");
-    sendForm.setAttribute('method', "post");
-    sendForm.setAttribute('action', "validate.php");
-
-    var input = document.createElement("input");
-    input.setAttribute('type', "hidden");
-    input.setAttribute('name', "json");
-    input.value = JSON.stringify(json);
-
-    const input_name = document.createElement('input')
-    input_name.setAttribute('type', 'hidden')
-    input_name.setAttribute('name', 'step_name')
-    input_name.value = json.script_name
-
-    sendForm.appendChild(input);
-    sendForm.appendChild(input_name)
-    document.getElementsByTagName("body")[0].appendChild(sendForm);
-    sendForm.submit();
-
-}
-
 //ouvre la fenetre qui ajoute une étape
 var updateButton = document.getElementById('add_step_btn');
 updateButton.addEventListener('click', function () {
@@ -344,4 +302,72 @@ function addStep(step_name) {
     btnDel.addEventListener('click', deleteBtn);
 }
 
-function saveDraft() { }
+//soumission du formulaire contenant le script complet
+function handleSubmit(event) {
+    var script_name = document.getElementById('script_name').value;
+    var summary = document.getElementById('summary').value;
+    var select_box = document.getElementById('first_step');
+    var first_step = select_box.options[select_box.selectedIndex].text;
+    var selectpack = document.getElementById('pack');
+    var pack = selectpack.options[selectpack.selectedIndex].id;
+    var selectcharacter = document.getElementById('character_id');
+    var charcter = selectcharacter.options[selectcharacter.selectedIndex].id;
+    json = {
+        'script_name': script_name,
+        'summary': summary,
+        'version': 1,
+        'script_background': "blabla.jpg",
+        'initial_step': first_step,
+        'character_id': charcter,
+        'pack': pack,
+        'steps': steps
+    };
+    var sendForm = document.createElement("form");
+    sendForm.setAttribute('method', "post");
+    sendForm.setAttribute('action', "validate.php");
+
+    var input = document.createElement("input");
+    input.setAttribute('type', "hidden");
+    input.setAttribute('name', "json");
+    input.value = JSON.stringify(json);
+
+    const input_name = document.createElement('input')
+    input_name.setAttribute('type', 'hidden')
+    input_name.setAttribute('name', 'step_name')
+    input_name.value = json.script_name
+
+    sendForm.appendChild(input);
+    sendForm.appendChild(input_name)
+    document.getElementsByTagName("body")[0].appendChild(sendForm);
+    sendForm.submit();
+
+}
+
+function saveDraft() {
+    document.getElementById("codeFileName").textContent = document.getElementById('script_name').value + '.json'
+
+    var script_name = document.getElementById('script_name').value;
+    var summary = document.getElementById('summary').value;
+    var select_box = document.getElementById('first_step');
+    var first_step = select_box.options[select_box.selectedIndex].text;
+    var selectpack = document.getElementById('pack');
+    var pack = selectpack.options[selectpack.selectedIndex].id;
+    var selectcharacter = document.getElementById('character_id');
+    var charcter = selectcharacter.options[selectcharacter.selectedIndex].id;
+    json = {
+        'script_name': script_name,
+        'summary': summary,
+        'version': 1,
+        'script_background': "blabla.jpg",
+        'initial_step': first_step,
+        'character_id': charcter,
+        'pack': pack,
+        'steps': steps
+    };
+
+
+    document.getElementById('jsonDraftName').value = json.script_name
+
+    document.getElementById("jsonDraft").value = JSON.stringify(json);
+
+}

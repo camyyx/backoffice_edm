@@ -64,7 +64,8 @@
         <button style="margin-right: 50px" onclick="handleSubmit()" class="btn btn-outline-success" id='submit'>Ajouter
             ce
             script</button>
-        <button onclick="saveDraft()" class="btn btn-outline-primary" id='draft'>Ajouter au
+        <button onclick="saveDraft()" data-toggle="modal" data-target="#modalDraft" class="btn btn-outline-primary"
+            id='draft'>Ajouter au
             brouillon</button>
     </div>
 </div>
@@ -184,6 +185,33 @@
                     <input onclick="modify(this)" class="btn btn-outline-success" data-dismiss="modal" type="submit"
                         class="submit">
                 </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    id="modalDraft">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body" style="padding: 30px">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div
+                    style="display: flex; flex-direction: column; text-align: center; align-content: center; align-items: center">
+                    <h5 style="margin-bottom: 20px; margin-top: 30px">Ce fichier sera télécharger sur votre machine</h5>
+                    <code id="codeFileName" style="margin-bottom: 20px"></code>
+                    <div style="display: flex; flex-direction: row;">
+                        <form method="POST" action="/validate.php">
+                            <button type="submit" style="margin-right: 10px"
+                                class="btn btn-outline-success">Valider</button>
+                            <button style="margin-left: 10px" class="btn btn-outline-danger">Refuser</button>
+                            <input name="draft" type="hidden" id="jsonDraft">
+                            <input type="hidden" id="jsonDraftName" name="step_name">
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
