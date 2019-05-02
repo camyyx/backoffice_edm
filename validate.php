@@ -10,14 +10,18 @@ require_once "Script.php";
         if ($output['usable']){
             // echo "Le script est valide il sera ajouté au jeu !";
             $json = $_POST['json'];
-            echo "path";
-            echo $path;
-            $filename =  $_POST['step_name'] . ".json";
+            $filename =  './histoire/' . $_POST['step_name'] . ".json";
             $file = fopen($filename, 'w');
             fwrite($file, $json);
             fclose($file);
             require ('config.php');
-            file_put_contents($path, $file);
+            file_put_contents($path, $file); ?>
+            <form id="goHome" action="/">
+            </form>
+            <script>
+                document.getElementById('goHome').submit()
+            </script>
+            <?php
         }else{
             ?>
             <form id = "send" action = "update.php" method = "post">
