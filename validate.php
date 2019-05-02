@@ -57,7 +57,9 @@ require_once "Script.php";
         file_put_contents($path, $file);
         echo "<a id='dl' href='/draft/" . $_POST['step_name'] . ".json'" . "download>Bonsoir</a>";
         ?>
-        <form action="/" id="goHome"></form>
+        <form action="./delete.php" id="goHome" method="POST">
+          <?php  echo "<input type='hidden' name='deleteDraft' value='".$_POST['step_name']."'>" ?>
+        </form>
         <script>
             document.getElementById('dl').click()
             document.getElementById('goHome').submit()
