@@ -6,11 +6,13 @@ require_once "Script.php";
         $json = $_POST['json'];
         $script = new \Core\Script($json);
         $output = $script->validate_script();
-        
+
         if ($output['usable']){
             // echo "Le script est valide il sera ajouté au jeu !";
-            echo $_POST['json'];
-            $filename =  $json['script_name'] . ".json";
+            $json = $_POST['json'];
+            echo "path";
+            echo $path;
+            $filename =  $_POST['step_name'] . ".json";
             $file = fopen($filename, 'w');
             fwrite($file, $json);
             fclose($file);

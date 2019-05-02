@@ -261,7 +261,6 @@ document.getElementsByClassName('step_form')[0].addEventListener('submit', modif
 
 //soumission du formulaire contenant le script complet
 function handleSubmit(event) {
-    event.preventDefault();
     var script_name = document.getElementById('script_name').value;
     var summary = document.getElementById('summary').value;
     var select_box = document.getElementById('first_step');
@@ -287,15 +286,19 @@ function handleSubmit(event) {
     var input = document.createElement("input");
     input.setAttribute('type', "hidden");
     input.setAttribute('name', "json");
-    input.setAttribute('value', "");
     input.value = JSON.stringify(json);
+
+    const input_name = document.createElement('input')
+    input_name.setAttribute('type', 'hidden')
+    input_name.setAttribute('name', 'step_name')
+    input_name.value = json.script_name
+
     sendForm.appendChild(input);
+    sendForm.appendChild(input_name)
     document.getElementsByTagName("body")[0].appendChild(sendForm);
-    sendForm.submit()
-        ;
+    sendForm.submit();
 
 }
-document.getElementById('submit').addEventListener('click', handleSubmit);
 
 //ouvre la fenetre qui ajoute une étape
 var updateButton = document.getElementById('add_step_btn');
