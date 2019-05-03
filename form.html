@@ -61,12 +61,12 @@
         </tbody>
     </table>
     <div style="display:flex; flex-direction: row; margin-top: 30px">
-        <button style="margin-right: 50px" onclick="handleSubmit()" class="btn btn-outline-success" id='submit'>Ajouter
+        <button onclick="setSendName()" data-toggle="modal" data-target="#modalSend" style="margin-right: 50px"
+            class="btn btn-outline-success" id='submit'>Ajouter
             ce
-            script</button>
+            cette histoire</button>
         <button onclick="saveDraft()" data-toggle="modal" data-target="#modalDraft" class="btn btn-outline-primary"
-            id='draft'>Ajouter au
-            brouillon</button>
+            id='draft'>Télécharger le brouillon</button>
     </div>
 </div>
 </form>
@@ -211,6 +211,33 @@
                             <input name="draft" type="hidden" id="jsonDraft">
                             <input type="hidden" id="jsonDraftName" name="step_name">
                         </form>
+                        <button style="margin-left: 10px" class="btn btn-outline-danger"
+                            data-dismiss="modal">Refuser</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    id="modalSend">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Ce fichier sera télécharger enregistré sur le serveur</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="padding: 30px">
+                <div
+                    style="display: flex; flex-direction: column; text-align: center; align-content: center; align-items: center">
+                    <code id="codeFileNameSend" style="margin-bottom: 20px"></code>
+                    <div class="modal-footer">
+                        <button onclick='handleSubmit()' style="margin-right: 10px"
+                            class="btn btn-outline-success">Valider</button>
                         <button style="margin-left: 10px" class="btn btn-outline-danger"
                             data-dismiss="modal">Refuser</button>
 

@@ -28,7 +28,7 @@
 
     $list = get_scripts();
     echo "<ul class='list-group'>";
-    echo "<li class='list-group-item active'>Du serveur</li>";
+    echo "<li class='list-group-item active'>Une histoire du serveur</li>";
     foreach($list as $key => $value){
         echo "<li class='list-group-item'>";
         echo "<div style='display:flex; flex-direction:row'>";

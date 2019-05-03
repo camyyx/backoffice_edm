@@ -298,8 +298,13 @@ function addStep(step_name) {
     btnDel.addEventListener('click', deleteBtn);
 }
 
+function setSendName(){
+    const name = document.getElementById('script_name').value + '.json'
+    document.getElementById('codeFileNameSend').textContent = name
+}
+
 //soumission du formulaire contenant le script complet
-function handleSubmit(event) {
+function handleSubmit() {
     var script_name = document.getElementById('script_name').value;
     var summary = document.getElementById('summary').value;
     var select_box = document.getElementById('first_step');

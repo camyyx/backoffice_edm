@@ -19,10 +19,10 @@
                 <h5 class="card-title">Créer une histoire</h5>
                 <div style="display:flex; flex-direction:row">
                     <form style="margin: 10px" action = "update.php" method = "get">
-                        <input name="newScript" class="btn btn-info" type="submit" value="Nouvelle histoire">
+                        <input name="newScript" class="btn btn-outline-info" type="submit" value="Nouvelle histoire">
                     </form>
                     <form style="margin:10px" action="newScript.php" method="get">
-                        <input class="btn btn-warning" type="submit" value="Nouveau JSON">
+                        <input class="btn btn-outline-info" type="submit" value="Nouveau JSON">
                     </form>
                 </div>
             </div>
@@ -30,15 +30,11 @@
 
 <div style="margin-top:20px" class="card">
   <div class="card-body">
-    <h5 class="card-title">Modifier une histoire</h5>
+    <h5 class="card-title">Modifier</h5>
     <ul style="margin-bottom:10px" class="list-group">
-    <li class="list-group-item active">De votre machine</li>
+    <li class="list-group-item active">Un brouillon de votre machine</li>
                 <li class="list-group-item">
         <form style="margin: 0.5em" enctype="multipart/form-data" action="update.php" method="post">
-            <!-- <textarea name="json" id="json" cols="30" rows="10"></textarea> -->
-            <!-- <input style="margin: 0.5em" class="" onchange="watch(this)" type="file" name="json" id="json">
-            <input style="margin: 0.5em" class="btn btn-primary" disabled="true" id="input" type="submit"> -->
-
 
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -46,7 +42,7 @@
                 </div>
                 <div class="custom-file">
                     <input accept="json" type="file" onchange="watch(this)" name="json" style="margin: 0.5em" class="custom-file-input" id="json" lang="fr">
-                    <label style="text-align: left" id="label" class="custom-file-label" for="json">Choisissez une histoire (.json)</label>
+                    <label style="text-align: left" id="label" class="custom-file-label" for="json">Selectionner un fichier (.json)</label>
 
                 </div>
             </div>
@@ -81,7 +77,6 @@
 </div>
 </div>
 </div>
-<!-- DIV -->
 
 </div>
     </body>
