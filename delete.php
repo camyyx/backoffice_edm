@@ -1,10 +1,9 @@
 <?php
     $_POST['delete'] ? unlink('./scripts/' . $_POST['delete']) : null ;
-    // $_POST['deleteDraft'] ? unlink('./draft/' . $_POST['deleteDraft'] . '.json') : null;
-
-echo "un test de tes morts";
 ?>
-    <form action="/" id="goHome"></form>
+    <form action="/" id="goHome" method="post">
+        <?php echo "<input name='deleteDraft' value'".$_POST['deleteDraft']."' type='hidden' />" ?>
+    </form>
     <script>
         document.getElementById('goHome').submit()
     </script>
