@@ -12,7 +12,7 @@
         <script src="./watchInputFile.js"></script>
     </head>
     <body style="text-align:center">
-    <div style="margin:20px;">
+            <div style="margin:20px;">
         <h1 style="margin: 0.5em">Become BackOffice</h1>
         <div class="card">
             <div class="card-body" style="display:flex; flex-direction:column; justify-content:center; align-items:center">
