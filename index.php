@@ -12,42 +12,48 @@
         <script src="./watchInputFile.js"></script>
     </head>
     <body style="text-align:center">
-        <h1 style="margin: 0.5em">Ajoutez un fichier d'histoire</h1>
-        <h5 style="margin: 0.5em">N'ajouter que des fichiers en <code>.json</code></h5>
+    <div style="margin:20px;">
+        <h1 style="margin: 0.5em">Become BackOffice</h1>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Créer une histoire</h5>
+                <div style="display:flex; flex-direction:row">
+                    <form style="margin: 10px" action = "update.php" method = "get">
+                        <input name="newScript" class="btn btn-info" type="submit" value="Nouvelle histoire">
+                    </form>
+                    <form style="margin:10px" action="newScript.php" method="get">
+                        <input color="white" class="btn btn-warning" type="submit" value="Nouveau JSON">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+<div style="margin-top:20px" class="card">
+  <div class="card-body">
+    <h5 class="card-title">Modifier une histoire</h5>
+    <ul style="margin-bottom:10px" class="list-group">
+    <li class="list-group-item active">De votre machine</li>
+                <li class="list-group-item">
         <form style="margin: 0.5em" enctype="multipart/form-data" action="update.php" method="post">
             <!-- <textarea name="json" id="json" cols="30" rows="10"></textarea> -->
             <!-- <input style="margin: 0.5em" class="" onchange="watch(this)" type="file" name="json" id="json">
             <input style="margin: 0.5em" class="btn btn-primary" disabled="true" id="input" type="submit"> -->
 
+
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                 <input class="btn btn-primary" type="submit" disabled="true" id="input" value="Envoyer">
+                 <input class="btn btn-primary" type="submit" disabled="true" id="input" value="Ouvrir">
                 </div>
                 <div class="custom-file">
                     <input accept="json" type="file" onchange="watch(this)" name="json" style="margin: 0.5em" class="custom-file-input" id="json" lang="fr">
-                    <label style="text-align: left" id="label" class="custom-file-label" for="json">Choisissez une histoire</label>
+                    <label style="text-align: left" id="label" class="custom-file-label" for="json">Choisissez une histoire (.json)</label>
+
                 </div>
             </div>
         </form>
+                </li>
+        </ul>
         <?php include_once ('listFiles.php')?>
-        <div style="display:flex; flex-direction:column">
-            <form style="margin: 10px" action = "update.php" method = "get">
-                <input name="newScript" class="btn btn-info" type="submit" value="Nouveau Script">
-            </form>
-            <div style="display:flex; flex-direction:column">
-            <button style="margin: 10px; transition: width 0.5s" class="btn btn-warning" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                Ajout manuel
-            </button>
-            <div class="collapse" id="collapseExample">
-                <div class="card card-body">
-                    <form id="manualForm" action="validate.php" method="post">
-                        <textarea class="form-control" name="json"></textarea>
-                        <input style="margin:10px" class="btn btn-primary" type="submit" value = "Valider"/>
-                    </form>
-                </div>
-            </div>
-            </div>
-        </div>
 <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" id="deleteModal">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -73,8 +79,15 @@
         </div>
     </div>
 </div>
+</div>
+</div>
+<!-- DIV -->
+
+</div>
     </body>
 </html>
+
+
 <style>
     body {
         display: flex;
