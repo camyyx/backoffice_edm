@@ -4,14 +4,11 @@ if (typeof jsonstring === 'undefined' || jsonstring === null) {
     var steps = {};
 } else {
 
-    console.log(typeof json)
     if (typeof jsonstring === 'object') {
         var json = jsonstring
     } else {
-        console.log(typeof jsonstring)
         var json = JSON.parse(jsonstring)
     }
-    console.log(json);
     var steps = json.steps;
     document.getElementById('script_name').value = json['script_name'];
     document.getElementById('summary').textContent = json['summary'];
@@ -143,7 +140,6 @@ function modifyButton() {
 function modify() {
 
     document.querySelectorAll('#step_list > tr').forEach(x => {
-        console.log(x)
     })
 
     var step_name = document.getElementById('step_name').value;

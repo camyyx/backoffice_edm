@@ -53,7 +53,6 @@
                 echo '</script>';
                 }
             if(isset($_GET['newScript'])){
-                var_dump('gneugneu');
                 echo '<script>';
                 echo 'const jsonstring = {
                     "script_name": "",
