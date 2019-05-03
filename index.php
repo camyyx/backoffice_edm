@@ -15,14 +15,14 @@
     <div style="margin:20px;">
         <h1 style="margin: 0.5em">Become BackOffice</h1>
         <div class="card">
-            <div class="card-body">
+            <div class="card-body" style="display:flex; flex-direction:column; justify-content:center; align-items:center">
                 <h5 class="card-title">Créer une histoire</h5>
                 <div style="display:flex; flex-direction:row">
                     <form style="margin: 10px" action = "update.php" method = "get">
                         <input name="newScript" class="btn btn-info" type="submit" value="Nouvelle histoire">
                     </form>
                     <form style="margin:10px" action="newScript.php" method="get">
-                        <input color="white" class="btn btn-warning" type="submit" value="Nouveau JSON">
+                        <input class="btn btn-warning" type="submit" value="Nouveau JSON">
                     </form>
                 </div>
             </div>
