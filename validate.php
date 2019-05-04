@@ -65,6 +65,16 @@ require_once "Script.php";
             document.getElementById('goHome').submit()
         </script>
         <?php
+    }else{
+        ?>
+        <form id = "send" action = "update.php" method = "post">
+            <input type="text" name="json" value="<?= htmlspecialchars($draft); ?>" />
+            <input type="text" name="errors" value="<?= htmlspecialchars(json_encode($output['errors'])) ;?>" />
+        </form>
+        <script>
+            document.getElementById('send').submit();
+        </script>
+        <?php
     }
 }
     else{
