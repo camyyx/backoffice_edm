@@ -1,7 +1,8 @@
-<div
-    style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin-bottom: 30px">
-    <a href="/"><button class="fas fa-home btn btn-outline-secondary"></button></a>
+<div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin-bottom: 30px">
     <h1>Modification d'histoire</h1>
+    <a href="/" class="btn btn-outline-secondary" data-toggle="tooltip" data-placement="right" title="Retour à l'accueil">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M16 9l-3-3V2h-2v2L8 1 0 9h2l1 5c0 .55.45 1 1 1h8c.55 0 1-.45 1-1l1-5h2zm-4 5H9v-4H7v4H4L2.81 7.69 8 2.5l5.19 5.19L12 14z"/></svg>
+    </a>
 </div>
 
 <form class="add_form">
@@ -22,7 +23,7 @@
     <div class="form-group row">
         <label class="col-form-label col-sm-4" for="first_step">Première étape :</label>
         <div class="col-sm-8">
-            <select class="custom-select" name="first_step" id=first_step>
+            <select class="custom-select" name="first_step" id="first_step">
             </select>
         </div>
     </div>
@@ -51,8 +52,8 @@
 </form>
 <div style="display:flex; flex-direction: row; align-items: center">
     <h1 style="margin-right: 50px">Ajouter une étape</h1>
-    <button style="" class="btn btn-outline-primary fas fa-plus" type="button" data-toggle="modal"
-        data-target="#exampleModal" style="margin-bottom: 1em" id="add_step_btn">
+    <button class="btn btn-outline-primary" type="button" data-toggle="modal" data-target="#exampleModal" style="margin-bottom: 1em" id="add_step_btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5v2z"/></svg>
     </button>
 </div>
 <div style="display: flex; flex-direction: column">
@@ -103,19 +104,15 @@
                             <div class="col-sm"
                                 style='display: flex; flex-direction: column; justify-content: space-around'>
                                 <div class="custom-control custom-checkbox">
-                                    <input class="custom-control-input" type="checkbox" name="rankup1" value="rankup"
-                                        id='rankup1'>
-                                    <label class="custom-control-label" for="rankup1">Passer un niveau
-                                        suppérieur</label>
+                                    <input class="custom-control-input" type="checkbox" name="rankup1" value="rankup" id='rankup1'>
+                                    <label class="custom-control-label" for="rankup1">Passer un niveau suppérieur</label>
                                 </div>
                                 <div class="custom-control custom-checkbox">
-                                    <input class="custom-control-input" type="checkbox" name="addpoints1"
-                                        value="addpoints" id='addpoints1'>
+                                    <input class="custom-control-input" type="checkbox" name="addpoints1" value="addpoints" id='addpoints1'>
                                     <label class="custom-control-label" for="addpoints1">Ajouter points</label>
                                 </div>
                                 <div class="custom-control custom-checkbox">
-                                    <input class="custom-control-input" type="checkbox" name="endgame1" value="endgame"
-                                        id='endgame1'>
+                                    <input class="custom-control-input" type="checkbox" name="endgame1" value="endgame" id='endgame1'>
                                     <label class="custom-control-label" for="endgame1">Fin du jeu</label>
                                 </div>
                             </div>
@@ -181,8 +178,7 @@
                         <label for="next_step2">Etape suivante</label>
                         <input class="form-control" type="text" id="next_step2" name="next_step2">
                     </div>
-                    <input onclick="modify(this)" class="btn btn-outline-success" data-dismiss="modal" type="submit"
-                        class="submit">
+                    <input onclick="modify(this)" class="btn btn-outline-success" data-dismiss="modal" type="submit" class="submit">
                 </form>
             </div>
         </div>
@@ -200,8 +196,7 @@
                 </button>
             </div>
             <div class="modal-body" style="padding: 30px">
-                <div
-                    style="display: flex; flex-direction: column; text-align: center; align-content: center; align-items: center">
+                <div style="display: flex; flex-direction: column; text-align: center; align-content: center; align-items: center">
                     <code id="codeFileName" style="margin-bottom: 20px"></code>
                     <div class="modal-footer">
                         <form method="POST" action="/validate.php">
@@ -210,9 +205,7 @@
                             <input name="draft" type="hidden" id="jsonDraft">
                             <input type="hidden" id="jsonDraftName" name="step_name">
                         </form>
-                        <button style="margin-left: 10px" class="btn btn-outline-danger"
-                            data-dismiss="modal">Refuser</button>
-
+                        <button style="margin-left: 10px" class="btn btn-outline-danger" data-dismiss="modal">Refuser</button>
                     </div>
                 </div>
             </div>
@@ -236,10 +229,9 @@
                     <code id="codeFileNameSend" style="margin-bottom: 20px"></code>
                     <div class="modal-footer">
                         <button onclick='handleSubmit()' style="margin-right: 10px"
-                            class="btn btn-outline-success">Valider</button>
+                                class="btn btn-outline-success">Valider</button>
                         <button style="margin-left: 10px" class="btn btn-outline-danger"
-                            data-dismiss="modal">Refuser</button>
-
+                                data-dismiss="modal">Refuser</button>
                     </div>
                 </div>
             </div>

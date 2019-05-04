@@ -37,9 +37,9 @@ foreach($files as $file){
                 </div>
 
                 <?php
-            echo '<script>';
-            include('allFunctions.js');
-            echo '</script>';
+            // echo '<script>';
+            // include('allFunctions.js');
+            // echo '</script>';
 
             function allErrors($err){
                 echo "<button onclick='func(this.innerText)' class='list-group-item'>$err</button>";
