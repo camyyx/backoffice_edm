@@ -6,20 +6,23 @@
   "author": "KamehaMehdi <dahmammehdi@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "js": "./node_modules/.bin/gulp js"
+    "build": "./node_modules/.bin/gulp all",
+    "build-css": "./node_modules/.bin/gulp css",
+    "build-js": "./node_modules/.bin/gulp js",
+    "watch": "./node_modules/.bin/gulp all:watch",
+    "watch-css": "./node_modules/.bin/gulp css:watch",
+    "watch-js": "./node_modules/.bin/gulp js:watch"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.3",
-    "@babel/plugin-proposal-class-properties": "^7.4.4",
-    "@babel/preset-env": "^7.4.3",
-    "babel-preset-env": "^1.7.0",
-    "del": "^4.1.0",
+    "del": "^4.1.1",
     "gulp": "^4.0.1",
-    "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
-    "gulp-uglify": "^3.0.2"
+    "gulp-csso": "^3.0.1",
+    "gulp-terser": "^1.1.7"
   },
   "dependencies": {
-    "bootstrap": "^4.3.1"
+    "@fortawesome/fontawesome-free": "^5.8.1",
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1"
   }
 }

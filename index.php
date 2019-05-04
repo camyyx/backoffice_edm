@@ -4,12 +4,9 @@
         <meta charset = "utf-8"/>
         <title>Entrée du script</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="./css/bootstrap.min.css">
+        <link rel="stylesheet" href="./static/dist/css/app.css">
 
-        <script src="./js/jquery.min.js"></script>
-        <script src="./js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-        <script src="./watchInputFile.js"></script>
+        <script src="./static/dist/js/app.js"></script>
     </head>
     <body style="text-align:center">
             <div style="margin:20px;">
