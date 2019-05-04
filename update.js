@@ -142,7 +142,7 @@ function modify() {
     document.querySelectorAll('#step_list > tr').forEach(x => {
     })
 
-    var step_name = document.getElementById('step_name').value;
+    var step_name = document.getElementById('step_name').value.trim();
     var question = document.getElementById('question').value;
 
     var answer1 = document.getElementById('answer1').value;
@@ -241,10 +241,8 @@ function modify() {
         ],
         'options': {}
     }
-    if (!(step_name in steps)) { //!(json['steps'].hasOwnProperty(step_name))
-        //stepsList.includes(step_name) typeof json !== 'undefined')||
-        addStep(step_name);
-        // steps[step_name] = data;
+    if (!(step_name in steps)) {
+        step_name ? addStep(step_name) : console.log("menfou")
     }
     steps[step_name] = data;
     document.getElementsByClassName('step_form')[0].reset();
@@ -298,7 +296,7 @@ function addStep(step_name) {
     btnDel.addEventListener('click', deleteBtn);
 }
 
-function setSendName(){
+function setSendName() {
     const name = document.getElementById('script_name').value + '.json'
     document.getElementById('codeFileNameSend').textContent = name
 }
