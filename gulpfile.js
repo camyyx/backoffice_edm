@@ -11,7 +11,7 @@ gulp.task('css', () => {
     // Delete files first
     del('./static/dist/css/*');
 
-    return gulp.src([ './node_modules/bootstrap/dist/css/bootstrap.min.css ', './static/css/*.css' ])
+    return gulp.src([ './node_modules/bootstrap/dist/css/bootstrap.min.css', './static/css/*.css' ])
                .pipe(concat('app.css'))
                .pipe(csso({
                     restructure: true,
@@ -42,22 +42,13 @@ gulp.task('js:watch', () => {
     return gulp.watch('./static/js/*.js', gulp.series('js'));
 });
 
-
-/**
- * Fonts tasks
- */
-gulp.task('fonts', () => {
-    return gulp.src('./node_modules/@fortawesome/fontawesome-free/webfonts/*')
-               .pipe(gulp.dest('./static/dist/fonts/'));
-});
-
 /**
  * General tasks
  */
-gulp.task('all', gulp.parallel('css', 'js', 'fonts'));
+gulp.task('all', gulp.parallel('css', 'js'));
 gulp.task('all:watch', () => {
     return gulp.watch([
         './static/css/*.css',
         './static/js/*.js'
-    ], gulp.parallel('css', 'js', 'fonts'));
+    ], gulp.parallel('css', 'js'));
 });
