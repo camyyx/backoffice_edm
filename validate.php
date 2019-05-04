@@ -1,6 +1,8 @@
 <?php
 
 require_once "Script.php";
+$config = require_once("config.php");
+
 
     if( isset($_POST['json'])){
         $json = $_POST['json'];
@@ -11,8 +13,8 @@ require_once "Script.php";
                 // echo "Le script est valide il sera ajouté au jeu !";
                 $json = $_POST['json'];
 
-                //TODO: Changer le chemin
-                $filename =  './scripts/' . $_POST['step_name'] . ".json";
+                $filename = str_replace(" ", "-", $_POST['step_name']) . ".json";
+                $filename = $config["scripts_path"] . "/" . $filename;
 
                 $file = fopen($filename, 'w');
                 fwrite($file, $json);
@@ -47,8 +49,8 @@ require_once "Script.php";
         echo $_POST['draft'];
         $draft = $_POST['draft'];
 
-        // //TODO: Changer le chemin
-        $filename =  './draft/' . $_POST['step_name'] . ".json";
+        $filename = str_replace(" ", "-", $_POST['step_name']) . ".json";
+        $filename = $config["drafts_path"] . "/" . $filename;
 
         $file = fopen($filename, 'w');
         fwrite($file, $draft);

@@ -7,6 +7,25 @@
         <link rel="stylesheet" href="./static/dist/css/app.css">
 
         <script src="./static/dist/js/app.js"></script>
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+            }
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            input:hover{
+                cursor: pointer;
+            }
+            button:hover{
+                cursor: pointer;
+            }
+        </style>
     </head>
     <body style="text-align:center">
             <div style="margin:20px;">
@@ -78,24 +97,3 @@
 </div>
     </body>
 </html>
-
-
-<style>
-    body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-    }
-    form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    input:hover{
-        cursor: pointer;
-    }
-    button:hover{
-        cursor: pointer;
-    }
-</style>
