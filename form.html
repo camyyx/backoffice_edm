@@ -8,7 +8,8 @@
     <div class="form-group row">
         <label class="col-form-label col-sm-4" for="script_name">Nom du scénario:</label>
         <div class="col-sm-8">
-            <input class="form-control" type="text" id="script_name" name="script_name">
+            <input oninput="checkBlankName(this, 'submit')" class="form-control" type="text" id="script_name"
+                name="script_name">
         </div>
     </div>
     <hr>
@@ -81,7 +82,8 @@
                 <form class="step_form" method="dialog">
                     <div class="form-group">
                         <label for="step_name">Nom de l'étape:</label>
-                        <input class="form-control" type="text" id="step_name" name="step_name">
+                        <input oninput="checkBlankName(this, 'submitStep')" class="form-control" type="text"
+                            id="step_name" name="step_name">
                     </div>
                     <div class="form-group">
                         <label for="question">Question:</label>
@@ -183,7 +185,7 @@
                         <input class="form-control" type="text" id="next_step2" name="next_step2">
                     </div>
                     <input onclick="modify(this)" class="btn btn-outline-success" data-dismiss="modal" type="submit"
-                        class="submit">
+                        class="submit" id="submitStep">
                 </form>
             </div>
         </div>

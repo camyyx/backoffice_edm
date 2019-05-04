@@ -48,6 +48,7 @@ if (typeof jsonstring === 'undefined' || jsonstring === null) {
         row.appendChild(btnDel);
         btnDel.addEventListener('click', deleteBtn);
     });
+    checkBlankName(document.getElementById("script_name"), 'submit')
 }
 function deleteBtn() {
     var step_name = this.id;
@@ -134,6 +135,7 @@ function modifyButton() {
     if (!!step['answers'][1]["next_step"]) {
         document.getElementById('next_step2').value = step['answers'][1]["next_step"];
     }
+    checkBlankName(document.getElementById("step_name"), 'submitStep')
     // document.getElementById('favDialog').showModal();
 }
 
@@ -242,7 +244,7 @@ function modify() {
         'options': {}
     }
     if (!(step_name in steps)) {
-        step_name ? addStep(step_name) : console.log("menfou")
+        addStep(step_name)
     }
     steps[step_name] = data;
     document.getElementsByClassName('step_form')[0].reset();
