@@ -1,5 +1,3 @@
-<?php $_POST['deleteDraft'] ? unlink('./draft/' . $_POST['deleteDraft'] . '.json') : null; ?>
-
 <!DOCTYPE html>
 <html>
     <head>
