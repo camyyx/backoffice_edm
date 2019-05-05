@@ -18,7 +18,6 @@ const func = (e) => {
 
 const checkBlankName = (el, button) => {
     const value = el.value
-    console.log("set", value)
     if (value.trim()) {
         document.getElementById(button).disabled = false
     } else {

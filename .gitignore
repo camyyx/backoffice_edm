@@ -3,3 +3,5 @@ yarn.lock
 yarn-error.log
 .cache
 dist
+scripts
+draft

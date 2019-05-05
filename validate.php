@@ -59,6 +59,7 @@ require_once "Script.php";
         ?>
         <form action="./delete.php" id="goHome" method="POST">
           <?php  echo "<input type='hidden' name='deleteDraft' value='".$_POST['step_name']."'>" ?>
+          <?php echo $_POST['step_name'] ?>
         </form>
         <script>
             document.getElementById('dl').click()

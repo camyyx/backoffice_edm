@@ -299,13 +299,13 @@ function addStep(step_name) {
 }
 
 function setSendName() {
-    const name = document.getElementById('script_name').value + '.json'
-    document.getElementById('codeFileNameSend').textContent = name
+    const name = document.getElementById('script_name').value.replace(/\s/g, "_") + '.json'
+    document.getElementById('codeFileNameSend').textContent = name.replace(/\s/g, "_")
 }
 
 //soumission du formulaire contenant le script complet
 function handleSubmit() {
-    var script_name = document.getElementById('script_name').value;
+    var script_name = document.getElementById('script_name').value.replace(/\s/g, "_");
     var summary = document.getElementById('summary').value;
     var select_box = document.getElementById('first_step');
     var first_step = select_box.options[select_box.selectedIndex].text;
@@ -345,9 +345,9 @@ function handleSubmit() {
 }
 
 function saveDraft() {
-    document.getElementById("codeFileName").textContent = document.getElementById('script_name').value + '.json'
+    document.getElementById("codeFileName").textContent = document.getElementById('script_name').value.replace(/\s/g, "_") + '.json'
 
-    var script_name = document.getElementById('script_name').value;
+    var script_name = document.getElementById('script_name').value.replace(/\s/g, "_");
     var summary = document.getElementById('summary').value;
     var select_box = document.getElementById('first_step');
     var first_step = select_box.options[select_box.selectedIndex].text;
