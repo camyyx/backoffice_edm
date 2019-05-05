@@ -57,7 +57,7 @@ $config = require_once("config.php");
         fclose($file);
         require ('config.php');
         file_put_contents($path, $file);
-        echo "<a id='dl' href='/draft/" . $_POST['step_name'] . ".json'" . "download>Bonsoir</a>";
+        echo "<a id='dl' href='/scripts/drafts/" . $_POST['step_name'] . ".json'" . " download>Bonsoir</a>";
         ?>
         <form action="./delete.php" id="goHome" method="POST">
           <?php  echo "<input type='hidden' name='deleteDraft' value='".$_POST['step_name']."'>" ?>

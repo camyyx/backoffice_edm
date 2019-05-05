@@ -1,7 +1,7 @@
 <?php
 
 //The name of the folder.
-$folder = './draft';
+$folder = 'scripts/draft';
 
 //Get a list of all of the file names in the folder.
 $files = glob($folder . '/*');
@@ -10,7 +10,6 @@ $files = glob($folder . '/*');
 foreach($files as $file){
     //Make sure that this is a file and not a directory.
     if(is_file($file)){
-        echo $file;
         //Use the unlink function to delete the file.
         unlink($file);
     }
