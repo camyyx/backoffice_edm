@@ -1,4 +1,5 @@
 <?php
     return [
-        "script_path" => "./scripts"
+        "scripts_path" => "./scripts",
+        "drafts_path" => "./scripts/drafts",
     ];
