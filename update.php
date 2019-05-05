@@ -1,7 +1,7 @@
 <?php
 
 //The name of the folder.
-$folder = '/draft';
+$folder = './draft';
 
 //Get a list of all of the file names in the folder.
 $files = glob($folder . '/*');

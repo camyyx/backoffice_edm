@@ -6,8 +6,8 @@
     function get_scripts() {
         // Get all scripts available on the folder
         $config = require_once('config.php');
-        $path = $config['script_path'];
-        $files = scandir($path); //glob(SCRIPTS_PATH . '/*.json');
+        $path = $config['scripts_path'];
+        $files = scandir($path); //glob(SCRIPTS_PATH . '*.json');
         $output = array();
         foreach($files as $script) {
             try {
