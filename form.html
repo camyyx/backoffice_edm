@@ -73,9 +73,9 @@
         <button onclick="setSendName()" data-toggle="modal" data-target="#modalSend" style="margin-right: 50px"
             class="btn btn-outline-success" id='submit'>Ajouter
             cette histoire</button>
-        <button onclick="saveDraft()" data-toggle="modal" data-target="#modalDraft" class="btn btn-outline-primary"
+        <button onclick="saveDraft()"  class="btn btn-outline-primary"
             id='draft'>Télécharger le brouillon</button>
-
+            <!-- data-toggle="modal" data-target="#modalDraft" -->
     </div>
 </div>
 </form>
@@ -215,14 +215,14 @@
                     style="display: flex; flex-direction: column; text-align: center; align-content: center; align-items: center">
                     <code id="codeFileName" style="margin-bottom: 20px"></code>
                     <div class="modal-footer">
-                        <form method="POST" action="/validate.php">
+                        <!-- <form method="POST" action="/validate.php">
                             <button type="submit" style="margin-right: 10px"
                                 class="btn btn-outline-success">Valider</button>
                             <input name="draft" type="hidden" id="jsonDraft">
                             <input type="hidden" id="jsonDraftName" name="step_name">
-                        </form>
+                        </form> -->
                         <button style="margin-left: 10px" class="btn btn-outline-danger"
-                            data-dismiss="modal">Refuser</button>
+                            data-dismiss="modal">Refuser</button>json
                     </div>
                 </div>
             </div>

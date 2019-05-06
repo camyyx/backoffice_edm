@@ -69,6 +69,7 @@ foreach($files as $file){
                 }
             if(isset($_GET['newScript'])){
                 echo '<script>';
+                // echo 'import {saveAs} from \'file-saver\';';
                 echo 'const jsonstring = {
                     "script_name": "",
                     "summary": "",

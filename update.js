@@ -1,3 +1,5 @@
+
+
 var stepsList = [];
 if (typeof jsonstring === 'undefined' || jsonstring === null) {
     var json = {};
@@ -355,7 +357,7 @@ function saveDraft() {
     var pack = selectpack.options[selectpack.selectedIndex].id;
     var selectcharacter = document.getElementById('character_id');
     var charcter = selectcharacter.options[selectcharacter.selectedIndex].id;
-    json = {
+    var json = {
         'script_name': script_name,
         'summary': summary,
         'version': 1,
@@ -365,10 +367,14 @@ function saveDraft() {
         'pack': pack,
         'steps': steps
     };
+    var FileSaver = require('file-saver');
+    var filename = script_name + ".json";
+    var jsonString = JSON.stringify(json);
+    var jsonFile = new File([jsonString], filename);
+    FileSaver.saveAs(jsonFile);
 
+    // document.getElementById('jsonDraftName').value = json.script_name
 
-    document.getElementById('jsonDraftName').value = json.script_name
-
-    document.getElementById("jsonDraft").value = JSON.stringify(json);
+    // document.getElementById("jsonDraft").value = JSON.stringify(json);
 
 }
